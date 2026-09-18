@@ -1,7 +1,6 @@
 import { Hero } from '@/components/hero'
 import { Moments } from '@/components/moments'
 import { Schedule } from '@/components/schedule'
-import { DressCode } from '@/components/dress-code'
 import { Rsvp } from '@/components/rsvp'
 import { MusicPlayer } from '@/components/music-player'
 import { WEDDING } from '@/lib/wedding'
@@ -12,7 +11,6 @@ export default function Page() {
       <Hero />
       <Moments />
       <Schedule />
-      <DressCode />
       <Rsvp />
 
       <footer className="border-t border-cream/10 px-6 py-14 text-center">
