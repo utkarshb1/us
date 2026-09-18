@@ -1,11 +1,11 @@
 export const WEDDING = {
   couple: ['Saloni', 'Utkarsh'] as const,
-  dateLabel: 'December 2, 2026',
+  dateLabel: 'December 1 – 2, 2026',
   location: 'Ujjain, India',
   venue: 'Shipra Riverside Gardens',
   venueAddress: 'Ujjain, Madhya Pradesh, India',
-  // Ceremony start — used for the hero countdown (local ISO, IST)
-  date: new Date('2026-12-02T19:00:00+05:30'),
+  // First celebration — used for the hero countdown (local ISO, IST)
+  date: new Date('2026-12-01T11:00:00+05:30'),
   mapsUrl:
     'https://www.google.com/maps/search/?api=1&query=Ujjain+Madhya+Pradesh+India',
   spotifyUrl: 'https://open.spotify.com/playlist/37i9dQZF1DXcBWIGoYBM5M',
@@ -21,42 +21,78 @@ export type ScheduleItem = {
   description: string
 }
 
-export const SCHEDULE: ScheduleItem[] = [
+export type ScheduleDay = {
+  label: string
+  dateLabel: string
+  events: ScheduleItem[]
+}
+
+export const SCHEDULE: ScheduleDay[] = [
   {
-    title: 'Welcome Drinks',
-    time: '6:00 PM',
-    start: new Date('2026-12-02T18:00:00+05:30'),
-    durationMinutes: 60,
-    venue: 'Garden Lawn',
-    address: WEDDING.venueAddress,
-    description: 'Arrive, grab a chai or cocktail, and settle in as the evening lights come on.',
+    label: 'Day One',
+    dateLabel: 'Tuesday, December 1, 2026',
+    events: [
+      {
+        title: 'Phoolon ki Haldi',
+        time: '11:00 AM',
+        start: new Date('2026-12-01T11:00:00+05:30'),
+        durationMinutes: 120,
+        venue: 'Garden Lawn',
+        address: WEDDING.venueAddress,
+        description: 'A blossom-filled haldi — showers of flower petals in place of turmeric to bless the couple.',
+      },
+      {
+        title: 'Engagement',
+        time: '4:00 PM',
+        start: new Date('2026-12-01T16:00:00+05:30'),
+        durationMinutes: 120,
+        venue: 'The Riverside Terrace',
+        address: WEDDING.venueAddress,
+        description: 'The exchange of rings as families come together to celebrate the promise.',
+      },
+      {
+        title: 'Sangeet',
+        time: '7:30 PM',
+        start: new Date('2026-12-01T19:30:00+05:30'),
+        durationMinutes: 240,
+        venue: 'The Grand Ballroom',
+        address: WEDDING.venueAddress,
+        description: 'A night of music, dance, and dhol. Bring your best moves to the floor.',
+      },
+    ],
   },
   {
-    title: 'The Ceremony',
-    time: '7:00 PM',
-    start: new Date('2026-12-02T19:00:00+05:30'),
-    durationMinutes: 90,
-    venue: 'The Mandap',
-    address: WEDDING.venueAddress,
-    description: 'Vows beneath the mandap by the Shipra. Please be seated by 6:45.',
-  },
-  {
-    title: 'Dinner & Toasts',
-    time: '8:30 PM',
-    start: new Date('2026-12-02T20:30:00+05:30'),
-    durationMinutes: 120,
-    venue: 'The Long Table',
-    address: WEDDING.venueAddress,
-    description: 'A feast under the winter sky with the people we love.',
-  },
-  {
-    title: 'After Party',
-    time: '10:30 PM',
-    start: new Date('2026-12-02T22:30:00+05:30'),
-    durationMinutes: 180,
-    venue: 'The Courtyard',
-    address: WEDDING.venueAddress,
-    description: 'Lights down, dhol up. Dance until the last song plays.',
+    label: 'Day Two',
+    dateLabel: 'Wednesday, December 2, 2026',
+    events: [
+      {
+        title: 'Wedding Ceremony',
+        time: '11:40 AM',
+        start: new Date('2026-12-02T11:40:00+05:30'),
+        durationMinutes: 180,
+        venue: 'The Mandap',
+        address: WEDDING.venueAddress,
+        description: 'The pheras beneath the mandap at the auspicious muhurat. Please be seated by 11:20.',
+      },
+      {
+        title: 'Mayra',
+        time: '4:00 PM',
+        start: new Date('2026-12-02T16:00:00+05:30'),
+        durationMinutes: 120,
+        venue: 'The Courtyard',
+        address: WEDDING.venueAddress,
+        description: 'The maternal family arrives bearing blessings and gifts for the couple.',
+      },
+      {
+        title: 'Reception',
+        time: '7:30 PM',
+        start: new Date('2026-12-02T19:30:00+05:30'),
+        durationMinutes: 240,
+        venue: 'The Grand Ballroom',
+        address: WEDDING.venueAddress,
+        description: 'An evening of dinner, celebration, and dancing to close the festivities.',
+      },
+    ],
   },
 ]
 

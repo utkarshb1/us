@@ -73,74 +73,100 @@ function AddToCalendar({ item }: { item: ScheduleItem }) {
   )
 }
 
+function DayTimeline({ events }: { events: ScheduleItem[] }) {
+  return (
+    <div className="relative mt-10">
+      {/* Timeline spine */}
+      <div
+        className="absolute bottom-0 left-[7px] top-2 w-px bg-gradient-to-b from-champagne/60 via-cream/15 to-transparent sm:left-1/2"
+        aria-hidden="true"
+      />
+
+      <ol className="space-y-8">
+        {events.map((item, i) => (
+          <li key={item.title} className="relative">
+            <Reveal delay={(i % 2) * 0.05}>
+              <div className="relative pl-8 sm:grid sm:grid-cols-2 sm:gap-10 sm:pl-0">
+                <span
+                  className="absolute left-0 top-2 size-3.5 rounded-full border border-champagne bg-[#0b0a09] sm:left-1/2 sm:-translate-x-1/2"
+                  aria-hidden="true"
+                >
+                  <span className="absolute inset-0.5 rounded-full bg-champagne" />
+                </span>
+
+                <div
+                  className={
+                    i % 2 === 0 ? 'sm:col-start-1 sm:text-right' : 'sm:col-start-2'
+                  }
+                >
+                  <div className="glass rounded-2xl p-5">
+                    <div
+                      className={`flex items-center gap-2 text-champagne ${i % 2 === 0 ? 'sm:justify-end' : ''}`}
+                    >
+                      <Clock className="size-3.5" aria-hidden="true" />
+                      <span className="text-xs font-medium uppercase tracking-[0.2em]">
+                        {item.time}
+                      </span>
+                    </div>
+                    <h3 className="font-serif mt-2 text-2xl font-light text-cream">
+                      {item.title}
+                    </h3>
+                    <p className="mt-2 text-sm leading-relaxed text-cream/60">
+                      {item.description}
+                    </p>
+                    <p
+                      className={`mt-3 flex items-center gap-1.5 text-xs text-cream/50 ${i % 2 === 0 ? 'sm:justify-end' : ''}`}
+                    >
+                      <MapPin className="size-3.5 text-champagne/70" aria-hidden="true" />
+                      {item.venue}
+                    </p>
+                    <div className={`mt-4 flex ${i % 2 === 0 ? 'sm:justify-end' : ''}`}>
+                      <AddToCalendar item={item} />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </Reveal>
+          </li>
+        ))}
+      </ol>
+    </div>
+  )
+}
+
 export function Schedule() {
   return (
     <section id="schedule" className="relative px-6 py-24 sm:py-32">
       <div className="mx-auto max-w-4xl">
-        <SectionHeading eyebrow="The Day" title="How it unfolds" className="max-w-xl" />
+        <SectionHeading
+          eyebrow="Two Days of Celebration"
+          title="How it unfolds"
+          className="max-w-xl"
+        />
 
-        <div className="relative mt-14">
-          {/* Timeline spine */}
-          <div
-            className="absolute bottom-0 left-[7px] top-2 w-px bg-gradient-to-b from-champagne/60 via-cream/15 to-transparent sm:left-1/2"
-            aria-hidden="true"
-          />
-
-          <ol className="space-y-8">
-            {SCHEDULE.map((item, i) => (
-              <li key={item.title} className="relative">
-                <Reveal delay={(i % 2) * 0.05}>
-                  <div className="relative pl-8 sm:grid sm:grid-cols-2 sm:gap-10 sm:pl-0">
-                    <span
-                      className="absolute left-0 top-2 size-3.5 rounded-full border border-champagne bg-[#0b0a09] sm:left-1/2 sm:-translate-x-1/2"
-                      aria-hidden="true"
-                    >
-                      <span className="absolute inset-0.5 rounded-full bg-champagne" />
-                    </span>
-
-                    <div
-                      className={
-                        i % 2 === 0
-                          ? 'sm:col-start-1 sm:text-right'
-                          : 'sm:col-start-2'
-                      }
-                    >
-                      <div className="glass rounded-2xl p-5">
-                        <div
-                          className={`flex items-center gap-2 text-champagne ${i % 2 === 0 ? 'sm:justify-end' : ''}`}
-                        >
-                          <Clock className="size-3.5" aria-hidden="true" />
-                          <span className="text-xs font-medium uppercase tracking-[0.2em]">
-                            {item.time}
-                          </span>
-                        </div>
-                        <h3 className="font-serif mt-2 text-2xl font-light text-cream">
-                          {item.title}
-                        </h3>
-                        <p className="mt-2 text-sm leading-relaxed text-cream/60">
-                          {item.description}
-                        </p>
-                        <p
-                          className={`mt-3 flex items-center gap-1.5 text-xs text-cream/50 ${i % 2 === 0 ? 'sm:justify-end' : ''}`}
-                        >
-                          <MapPin className="size-3.5 text-champagne/70" aria-hidden="true" />
-                          {item.venue}
-                        </p>
-                        <div
-                          className={`mt-4 flex ${i % 2 === 0 ? 'sm:justify-end' : ''}`}
-                        >
-                          <AddToCalendar item={item} />
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </Reveal>
-              </li>
-            ))}
-          </ol>
+        <div className="mt-14 space-y-16">
+          {SCHEDULE.map((day) => (
+            <div key={day.label}>
+              <Reveal>
+                <div className="flex flex-col items-center text-center">
+                  <span className="text-xs font-medium uppercase tracking-[0.3em] text-champagne">
+                    {day.label}
+                  </span>
+                  <h3 className="font-serif mt-2 text-2xl font-light text-cream sm:text-3xl">
+                    {day.dateLabel}
+                  </h3>
+                  <span
+                    className="mt-4 h-px w-16 bg-gradient-to-r from-transparent via-champagne/60 to-transparent"
+                    aria-hidden="true"
+                  />
+                </div>
+              </Reveal>
+              <DayTimeline events={day.events} />
+            </div>
+          ))}
         </div>
 
-        <Reveal className="mt-14 flex justify-center">
+        <Reveal className="mt-16 flex justify-center">
           <a
             href={WEDDING.mapsUrl}
             target="_blank"
