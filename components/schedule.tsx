@@ -20,7 +20,7 @@ function AddToCalendar({ item }: { item: ScheduleItem }) {
   }, [])
 
   const cal = {
-    title: `${item.title} — Alex & Jordan`,
+    title: `${item.title} — ${WEDDING.couple[0]} & ${WEDDING.couple[1]}`,
     description: item.description,
     location: `${item.venue}, ${item.address}`,
     start: item.start,

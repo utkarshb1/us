@@ -1,5 +1,5 @@
 export const WEDDING = {
-  couple: ['Alex', 'Jordan'] as const,
+  couple: ['Saloni', 'Utkarsh'] as const,
   dateLabel: 'September 12, 2027',
   location: 'Big Sur, California',
   venue: 'The Bluff at Ventana',

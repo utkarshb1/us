@@ -27,7 +27,7 @@ export function icsDataUri(e: CalEvent) {
   const lines = [
     'BEGIN:VCALENDAR',
     'VERSION:2.0',
-    'PRODID:-//Alex and Jordan//Wedding//EN',
+    'PRODID:-//Saloni and Utkarsh//Wedding//EN',
     'BEGIN:VEVENT',
     `UID:${toICSDate(e.start)}-${e.title.replace(/\s+/g, '')}@wedding`,
     `DTSTAMP:${toICSDate(new Date())}`,
