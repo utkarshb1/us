@@ -1,0 +1,160 @@
+'use client'
+
+import { AnimatePresence, motion } from 'framer-motion'
+import { Apple, CalendarPlus, ChevronDown, Clock, MapPin } from 'lucide-react'
+import { useEffect, useRef, useState } from 'react'
+import { googleCalendarUrl, icsDataUri } from '@/lib/calendar'
+import { SCHEDULE, WEDDING, type ScheduleItem } from '@/lib/wedding'
+import { Reveal, SectionHeading } from '@/components/reveal'
+
+function AddToCalendar({ item }: { item: ScheduleItem }) {
+  const [open, setOpen] = useState(false)
+  const ref = useRef<HTMLDivElement>(null)
+
+  useEffect(() => {
+    function onClick(e: MouseEvent) {
+      if (ref.current && !ref.current.contains(e.target as Node)) setOpen(false)
+    }
+    document.addEventListener('mousedown', onClick)
+    return () => document.removeEventListener('mousedown', onClick)
+  }, [])
+
+  const cal = {
+    title: `${item.title} — Alex & Jordan`,
+    description: item.description,
+    location: `${item.venue}, ${item.address}`,
+    start: item.start,
+    durationMinutes: item.durationMinutes,
+  }
+
+  return (
+    <div className="relative" ref={ref}>
+      <button
+        type="button"
+        onClick={() => setOpen((o) => !o)}
+        aria-expanded={open}
+        className="flex items-center gap-1.5 rounded-full border border-cream/15 bg-cream/5 px-3.5 py-1.5 text-xs font-medium text-cream/80 transition-colors hover:border-champagne/40 hover:text-cream"
+      >
+        <CalendarPlus className="size-3.5 text-champagne" aria-hidden="true" />
+        Add to calendar
+        <ChevronDown
+          className={`size-3.5 transition-transform ${open ? 'rotate-180' : ''}`}
+          aria-hidden="true"
+        />
+      </button>
+      <AnimatePresence>
+        {open && (
+          <motion.div
+            initial={{ opacity: 0, y: -6, scale: 0.98 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            exit={{ opacity: 0, y: -6, scale: 0.98 }}
+            transition={{ duration: 0.18 }}
+            className="glass absolute right-0 z-20 mt-2 w-44 overflow-hidden rounded-xl p-1"
+          >
+            <a
+              href={googleCalendarUrl(cal)}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-2 rounded-lg px-3 py-2 text-xs text-cream/85 transition-colors hover:bg-cream/10"
+            >
+              <CalendarPlus className="size-3.5" aria-hidden="true" /> Google Calendar
+            </a>
+            <a
+              href={icsDataUri(cal)}
+              download={`${item.title.replace(/\s+/g, '-').toLowerCase()}.ics`}
+              className="flex items-center gap-2 rounded-lg px-3 py-2 text-xs text-cream/85 transition-colors hover:bg-cream/10"
+            >
+              <Apple className="size-3.5" aria-hidden="true" /> Apple / iCal
+            </a>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </div>
+  )
+}
+
+export function Schedule() {
+  return (
+    <section id="schedule" className="relative px-6 py-24 sm:py-32">
+      <div className="mx-auto max-w-4xl">
+        <SectionHeading eyebrow="The Day" title="How it unfolds" className="max-w-xl" />
+
+        <div className="relative mt-14">
+          {/* Timeline spine */}
+          <div
+            className="absolute bottom-0 left-[7px] top-2 w-px bg-gradient-to-b from-champagne/60 via-cream/15 to-transparent sm:left-1/2"
+            aria-hidden="true"
+          />
+
+          <ol className="space-y-8">
+            {SCHEDULE.map((item, i) => (
+              <li key={item.title} className="relative">
+                <Reveal delay={(i % 2) * 0.05}>
+                  <div className="relative pl-8 sm:grid sm:grid-cols-2 sm:gap-10 sm:pl-0">
+                    <span
+                      className="absolute left-0 top-2 size-3.5 rounded-full border border-champagne bg-[#0b0a09] sm:left-1/2 sm:-translate-x-1/2"
+                      aria-hidden="true"
+                    >
+                      <span className="absolute inset-0.5 rounded-full bg-champagne" />
+                    </span>
+
+                    <div
+                      className={
+                        i % 2 === 0
+                          ? 'sm:col-start-1 sm:text-right'
+                          : 'sm:col-start-2'
+                      }
+                    >
+                      <div className="glass rounded-2xl p-5">
+                        <div
+                          className={`flex items-center gap-2 text-champagne ${i % 2 === 0 ? 'sm:justify-end' : ''}`}
+                        >
+                          <Clock className="size-3.5" aria-hidden="true" />
+                          <span className="text-xs font-medium uppercase tracking-[0.2em]">
+                            {item.time}
+                          </span>
+                        </div>
+                        <h3 className="font-serif mt-2 text-2xl font-light text-cream">
+                          {item.title}
+                        </h3>
+                        <p className="mt-2 text-sm leading-relaxed text-cream/60">
+                          {item.description}
+                        </p>
+                        <p
+                          className={`mt-3 flex items-center gap-1.5 text-xs text-cream/50 ${i % 2 === 0 ? 'sm:justify-end' : ''}`}
+                        >
+                          <MapPin className="size-3.5 text-champagne/70" aria-hidden="true" />
+                          {item.venue}
+                        </p>
+                        <div
+                          className={`mt-4 flex ${i % 2 === 0 ? 'sm:justify-end' : ''}`}
+                        >
+                          <AddToCalendar item={item} />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </Reveal>
+              </li>
+            ))}
+          </ol>
+        </div>
+
+        <Reveal className="mt-14 flex justify-center">
+          <a
+            href={WEDDING.mapsUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group inline-flex items-center gap-2.5 rounded-full bg-champagne px-6 py-3 text-sm font-medium text-[#2a2119] transition-transform hover:scale-[1.03]"
+          >
+            <MapPin className="size-4" aria-hidden="true" />
+            Open venue in Google Maps
+          </a>
+        </Reveal>
+        <Reveal delay={0.05} className="mt-3 text-center">
+          <p className="text-xs text-cream/45">{WEDDING.venue} · {WEDDING.venueAddress}</p>
+        </Reveal>
+      </div>
+    </section>
+  )
+}
