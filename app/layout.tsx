@@ -17,14 +17,14 @@ const sans = Inter({
 })
 
 export const metadata: Metadata = {
-  title: 'Saloni & Utkarsh · Big Sur, California',
+  title: 'Saloni & Utkarsh · Ujjain, India',
   description:
-    'Join us for the wedding of Saloni & Utkarsh in Big Sur, California — September 12, 2027. RSVP, schedule, dress code, and more.',
+    'Join us for the wedding of Saloni & Utkarsh in Ujjain, India — December 2, 2026. RSVP, schedule, dress code, and more.',
   generator: 'v0.app',
   openGraph: {
-    title: 'Saloni & Utkarsh · Big Sur, California',
+    title: 'Saloni & Utkarsh · Ujjain, India',
     description:
-      'Join us for the wedding of Saloni & Utkarsh in Big Sur, California — September 12, 2027.',
+      'Join us for the wedding of Saloni & Utkarsh in Ujjain, India — December 2, 2026.',
     images: ['/hero.png'],
     type: 'website',
   },

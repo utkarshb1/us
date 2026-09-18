@@ -36,7 +36,7 @@ export function Rsvp() {
           className="text-center [&_div]:mx-auto"
         />
         <Reveal delay={0.1} className="mt-4 text-center">
-          <p className="text-sm text-cream/60">Kindly respond by August 1, 2027.</p>
+          <p className="text-sm text-cream/60">Kindly respond by November 1, 2026.</p>
         </Reveal>
 
         <Reveal delay={0.15}>
@@ -70,8 +70,8 @@ export function Rsvp() {
                   </h3>
                   <p className="mt-3 max-w-sm text-sm leading-relaxed text-cream/60">
                     {attendance === 'yes'
-                      ? 'See you in Big Sur. We already saved your song for the dancefloor.'
-                      : 'Thank you for letting us know — we will raise a glass to you from the coast.'}
+                      ? 'See you in Ujjain. We already saved your song for the dancefloor.'
+                      : 'Thank you for letting us know — we will raise a glass to you from afar.'}
                   </p>
                   <button
                     type="button"
