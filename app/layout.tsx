@@ -1,6 +1,6 @@
-import { Analytics } from '@vercel/analytics/next'
 import type { Metadata, Viewport } from 'next'
 import { Cormorant_Garamond, Inter } from 'next/font/google'
+import { BASE_PATH } from '@/lib/base-path'
 import './globals.css'
 
 const serif = Cormorant_Garamond({
@@ -17,6 +17,7 @@ const sans = Inter({
 })
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://utkarshb1.github.io/us/'),
   title: 'Saloni & Utkarsh · Ujjain, India',
   description:
     'Join us for the wedding of Saloni & Utkarsh in Ujjain, India — December 2, 2026. RSVP, schedule, dress code, and more.',
@@ -25,16 +26,16 @@ export const metadata: Metadata = {
     title: 'Saloni & Utkarsh · Ujjain, India',
     description:
       'Join us for the wedding of Saloni & Utkarsh in Ujjain, India — December 2, 2026.',
-    images: ['/hero.png'],
+    images: [`${BASE_PATH}/hero.jpeg`],
     type: 'website',
   },
   icons: {
     icon: [
-      { url: '/icon-light-32x32.png', media: '(prefers-color-scheme: light)' },
-      { url: '/icon-dark-32x32.png', media: '(prefers-color-scheme: dark)' },
-      { url: '/icon.svg', type: 'image/svg+xml' },
+      { url: `${BASE_PATH}/icon-light-32x32.png`, media: '(prefers-color-scheme: light)' },
+      { url: `${BASE_PATH}/icon-dark-32x32.png`, media: '(prefers-color-scheme: dark)' },
+      { url: `${BASE_PATH}/icon.svg`, type: 'image/svg+xml' },
     ],
-    apple: '/apple-icon.png',
+    apple: `${BASE_PATH}/apple-icon.png`,
   },
 }
 
@@ -50,10 +51,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${serif.variable} ${sans.variable}`}>
-      <body className="antialiased">
-        {children}
-        {process.env.NODE_ENV === 'production' && <Analytics />}
-      </body>
+      <body className="antialiased">{children}</body>
     </html>
   )
 }

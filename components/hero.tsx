@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion'
 import { ChevronDown, MapPin } from 'lucide-react'
 import { Countdown } from '@/components/countdown'
+import { BASE_PATH } from '@/lib/base-path'
 import { WEDDING } from '@/lib/wedding'
 
 export function Hero() {
@@ -11,7 +12,7 @@ export function Hero() {
       {/* Background video layer with poster fallback */}
       <video
         className="absolute inset-0 h-full w-full object-cover"
-        poster="/hero.png"
+        poster={`${BASE_PATH}/hero.jpeg`}
         autoPlay
         muted
         loop
@@ -20,13 +21,13 @@ export function Hero() {
         aria-hidden="true"
         tabIndex={-1}
       >
-        <source src="/hero.mp4" type="video/mp4" />
+        <source src={`${BASE_PATH}/hero.mp4`} type="video/mp4" />
       </video>
 
       {/* Slow cinematic drift on the still layer */}
       <motion.div
         className="absolute inset-0 bg-cover bg-center"
-        style={{ backgroundImage: 'url(/hero.png)' }}
+        style={{ backgroundImage: `url(${BASE_PATH}/hero.jpeg)` }}
         initial={{ scale: 1.08 }}
         animate={{ scale: 1.16 }}
         transition={{ duration: 24, ease: 'linear', repeat: Infinity, repeatType: 'reverse' }}

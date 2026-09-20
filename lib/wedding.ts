@@ -1,13 +1,14 @@
+import { BASE_PATH } from '@/lib/base-path'
+
 export const WEDDING = {
   couple: ['Saloni', 'Utkarsh'] as const,
   dateLabel: 'December 1 – 2, 2026',
   location: 'Ujjain, India',
-  venue: 'Shipra Riverside Gardens',
+  venue: 'Suman Wedding & Events Venue - Marriage Garden',
   venueAddress: 'Ujjain, Madhya Pradesh, India',
   // First celebration — used for the hero countdown (local ISO, IST)
-  date: new Date('2026-12-01T11:00:00+05:30'),
-  mapsUrl:
-    'https://www.google.com/maps/search/?api=1&query=Ujjain+Madhya+Pradesh+India',
+  date: new Date('2026-12-01T10:00:00+05:30'),
+  mapsUrl: 'https://maps.app.goo.gl/KiXzjEyKrdMZhYLw5',
   spotifyUrl: 'https://open.spotify.com/playlist/37i9dQZF1DXcBWIGoYBM5M',
 }
 
@@ -19,6 +20,7 @@ export type ScheduleItem = {
   venue: string
   address: string
   description: string
+  note?: string
 }
 
 export type ScheduleDay = {
@@ -34,8 +36,8 @@ export const SCHEDULE: ScheduleDay[] = [
     events: [
       {
         title: 'Phoolon ki Haldi',
-        time: '11:00 AM',
-        start: new Date('2026-12-01T11:00:00+05:30'),
+        time: '10:00 AM',
+        start: new Date('2026-12-01T10:00:00+05:30'),
         durationMinutes: 120,
         venue: 'Garden Lawn',
         address: WEDDING.venueAddress,
@@ -43,8 +45,8 @@ export const SCHEDULE: ScheduleDay[] = [
       },
       {
         title: 'Engagement',
-        time: '4:00 PM',
-        start: new Date('2026-12-01T16:00:00+05:30'),
+        time: '3:00 PM',
+        start: new Date('2026-12-01T15:00:00+05:30'),
         durationMinutes: 120,
         venue: 'The Riverside Terrace',
         address: WEDDING.venueAddress,
@@ -57,7 +59,7 @@ export const SCHEDULE: ScheduleDay[] = [
         durationMinutes: 240,
         venue: 'The Grand Ballroom',
         address: WEDDING.venueAddress,
-        description: 'A night of music, dance, and dhol. Bring your best moves to the floor.',
+        description: 'A night of music, dance, and DJ. Bring your best moves to the floor.',
       },
     ],
   },
@@ -72,16 +74,8 @@ export const SCHEDULE: ScheduleDay[] = [
         durationMinutes: 180,
         venue: 'The Mandap',
         address: WEDDING.venueAddress,
-        description: 'The pheras beneath the mandap at the auspicious muhurat. Please be seated by 11:20.',
-      },
-      {
-        title: 'Mayra',
-        time: '4:00 PM',
-        start: new Date('2026-12-02T16:00:00+05:30'),
-        durationMinutes: 120,
-        venue: 'The Courtyard',
-        address: WEDDING.venueAddress,
-        description: 'The maternal family arrives bearing blessings and gifts for the couple.',
+        description: 'Mangalashtak, followed by the sacred pheras beneath the mandap.',
+        note: 'P.S. The baraat is where the party begins—don’t miss it!',
       },
       {
         title: 'Reception',
@@ -120,10 +114,19 @@ export const DRESS_CARDS = [
 ]
 
 export const MOMENTS = [
-  { src: '/moment-1.png', alt: 'The couple laughing together in golden light', span: 'row' },
-  { src: '/moment-2.png', alt: 'Champagne glasses clinking under string lights' },
-  { src: '/moment-3.png', alt: 'Candlelit coastal table setting with dried grasses' },
-  { src: '/moment-5.png', alt: 'The couple walking hand in hand at dusk', span: 'col' },
-  { src: '/moment-4.png', alt: 'Guests dancing under warm festival lights' },
-  { src: '/moment-6.png', alt: 'Delicate cream and blush wedding florals' },
+  { src: `${BASE_PATH}/moment-1.jpeg`, alt: 'The couple laughing together in golden light', span: 'row' },
+  { src: `${BASE_PATH}/moment-2.jpeg`, alt: 'Champagne glasses clinking under string lights' },
+  {
+    src: `${BASE_PATH}/moment-3.jpeg`,
+    alt: 'The couple taking a selfie together outdoors',
+    span: 'row',
+  },
+  { src: `${BASE_PATH}/moment-5.jpg`, alt: 'The couple walking hand in hand at dusk' },
+  {
+    src: `${BASE_PATH}/moment-6.jpeg`,
+    alt: 'The couple standing together outside a temple',
+    span: 'row',
+  },
+  { src: `${BASE_PATH}/moment-4.jpeg`, alt: 'Guests dancing under warm festival lights' },
+  { src: `${BASE_PATH}/moment-7.JPG`, alt: 'The couple walking together beneath the trees' },
 ]

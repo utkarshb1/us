@@ -21,8 +21,8 @@ function AddToCalendar({ item }: { item: ScheduleItem }) {
 
   const cal = {
     title: `${item.title} — ${WEDDING.couple[0]} & ${WEDDING.couple[1]}`,
-    description: item.description,
-    location: `${item.venue}, ${item.address}`,
+    description: [item.description, item.note].filter(Boolean).join('\n\n'),
+    location: `${WEDDING.venue}, ${WEDDING.venueAddress}`,
     start: item.start,
     durationMinutes: item.durationMinutes,
   }
@@ -114,12 +114,11 @@ function DayTimeline({ events }: { events: ScheduleItem[] }) {
                     <p className="mt-2 text-sm leading-relaxed text-cream/60">
                       {item.description}
                     </p>
-                    <p
-                      className={`mt-3 flex items-center gap-1.5 text-xs text-cream/50 ${i % 2 === 0 ? 'sm:justify-end' : ''}`}
-                    >
-                      <MapPin className="size-3.5 text-champagne/70" aria-hidden="true" />
-                      {item.venue}
-                    </p>
+                    {item.note && (
+                      <p className="mt-2 text-sm italic leading-relaxed text-champagne/80">
+                        {item.note}
+                      </p>
+                    )}
                     <div className={`mt-4 flex ${i % 2 === 0 ? 'sm:justify-end' : ''}`}>
                       <AddToCalendar item={item} />
                     </div>

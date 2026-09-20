@@ -15,8 +15,7 @@ export function Moments() {
         />
         <Reveal delay={0.12}>
           <p className="mt-5 max-w-md text-pretty text-sm leading-relaxed text-cream/60">
-            Little glimpses of us — and a preview of the kind of night we are
-            planning. Hover to bring them to life.
+            Little glimpses of us.
           </p>
         </Reveal>
 
@@ -26,7 +25,7 @@ export function Moments() {
               key={m.src}
               delay={(i % 3) * 0.08}
               className={[
-                'group relative overflow-hidden rounded-2xl',
+                'group relative overflow-hidden rounded-2xl bg-[#0b0a09]',
                 m.span === 'row' ? 'row-span-2' : '',
                 m.span === 'col' ? 'sm:col-span-2' : '',
               ].join(' ')}
