@@ -11,7 +11,7 @@ function Equalizer({ active }: { active: boolean }) {
       {[0, 1, 2, 3].map((bar) => (
         <span
           key={bar}
-          className="w-[3px] origin-bottom rounded-full bg-white"
+          className="w-[3px] origin-bottom rounded-full bg-[#2a2119]"
           style={{
             height: '100%',
             animation: active
@@ -88,7 +88,7 @@ export function MusicPlayer() {
         onClick={togglePlayback}
         aria-pressed={playing}
         aria-label={playing ? 'Pause wedding song' : 'Play wedding song'}
-        className="diya-glow flex size-14 items-center justify-center gap-1.5 rounded-full bg-champagne text-white shadow-lg shadow-black/20 transition-transform hover:scale-105"
+        className="diya-glow flex size-14 items-center justify-center gap-1.5 rounded-full bg-champagne text-[#2a2119] shadow-lg shadow-black/30 transition-transform hover:scale-105"
       >
         <span className="flex size-5 items-center justify-center">
           {playing ? (

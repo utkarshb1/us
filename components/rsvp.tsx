@@ -103,7 +103,7 @@ export function Rsvp() {
         className="pointer-events-none absolute left-1/2 top-1/3 -z-0 h-[420px] w-[420px] -translate-x-1/2 rounded-full bg-champagne/10 blur-[120px]"
         aria-hidden="true"
       />
-      <div className="invitation-page-panel relative mx-auto max-w-2xl">
+      <div className="relative mx-auto max-w-2xl">
         <SectionHeading
           eyebrow="RSVP"
           title="Will we see you there?"
@@ -130,7 +130,7 @@ export function Rsvp() {
                     initial={{ scale: 0 }}
                     animate={{ scale: 1 }}
                     transition={{ delay: 0.15, type: 'spring', stiffness: 200, damping: 14 }}
-                    className="flex size-16 items-center justify-center rounded-full bg-champagne text-white"
+                    className="flex size-16 items-center justify-center rounded-full bg-champagne text-[#2a2119]"
                   >
                     {attendance === 'yes' ? (
                       <PartyPopper className="size-7" aria-hidden="true" />
@@ -226,7 +226,7 @@ export function Rsvp() {
                             aria-hidden="true"
                           >
                             {attendance === opt.v && (
-                              <Check className="size-3 text-white" />
+                              <Check className="size-3 text-[#2a2119]" />
                             )}
                           </span>
                           {opt.label}
@@ -289,7 +289,7 @@ export function Rsvp() {
                   <button
                     type="submit"
                     disabled={submitting}
-                    className="diya-glow w-full rounded-xl bg-champagne py-3.5 text-sm font-semibold text-white transition-transform hover:scale-[1.01] active:scale-[0.99] disabled:cursor-wait disabled:opacity-60"
+                    className="diya-glow w-full rounded-xl bg-champagne py-3.5 text-sm font-semibold text-[#2a2119] transition-transform hover:scale-[1.01] active:scale-[0.99] disabled:cursor-wait disabled:opacity-60"
                   >
                     {submitting
                       ? 'Sending…'

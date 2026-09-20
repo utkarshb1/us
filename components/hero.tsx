@@ -2,17 +2,16 @@
 
 import { motion } from 'framer-motion'
 import { ChevronDown, MapPin } from 'lucide-react'
-import { BotanicalFrame } from '@/components/botanical-frame'
 import { Countdown } from '@/components/countdown'
 import { BASE_PATH } from '@/lib/base-path'
 import { WEDDING } from '@/lib/wedding'
 
 export function Hero() {
   return (
-    <section className="hero-invitation relative flex min-h-[100svh] w-full items-center justify-center overflow-hidden bg-[#f7f0e2]">
+    <section className="relative flex min-h-[100svh] w-full items-center justify-center overflow-hidden">
       {/* Background video layer with poster fallback */}
       <video
-        className="absolute inset-0 h-full w-full object-cover opacity-20 mix-blend-multiply saturate-[0.8]"
+        className="absolute inset-0 h-full w-full object-cover brightness-[1.18] saturate-[1.05]"
         poster={`${BASE_PATH}/hero.jpeg`}
         autoPlay
         muted
@@ -27,7 +26,7 @@ export function Hero() {
 
       {/* Slow cinematic drift on the still layer */}
       <motion.div
-        className="absolute inset-0 bg-cover bg-center opacity-25 mix-blend-multiply saturate-[0.8]"
+        className="absolute inset-0 bg-cover bg-center brightness-[1.18] saturate-[1.05]"
         style={{ backgroundImage: `url(${BASE_PATH}/hero.jpeg)` }}
         initial={{ scale: 1.08 }}
         animate={{ scale: 1.16 }}
@@ -37,19 +36,17 @@ export function Hero() {
 
       {/* Readability gradients */}
       <div
-        className="absolute inset-0 bg-gradient-to-b from-[#f7f0e2]/75 via-[#f7f0e2]/45 to-[#f7f0e2]/95"
+        className="absolute inset-0 bg-gradient-to-b from-[#0b0a09]/50 via-[#0b0a09]/20 to-[#0b0a09]/75"
         aria-hidden="true"
       />
       <div
-        className="absolute inset-0 bg-gradient-to-t from-[#f7f0e2]/90 via-transparent to-[#f7f0e2]/60"
+        className="absolute inset-0 bg-gradient-to-t from-[#0b0a09]/70 via-transparent to-[#0b0a09]/20"
         aria-hidden="true"
       />
-      <div className="invitation-arch" aria-hidden="true" />
-      <BotanicalFrame />
 
       <div className="relative z-10 flex flex-col items-center px-6 text-center">
         <motion.div
-          className="mb-2 flex items-center gap-3 text-champagne/80"
+          className="mb-5 flex items-center gap-3 text-champagne/75"
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.8 }}
@@ -60,15 +57,6 @@ export function Hero() {
           <span className="h-px w-10 bg-gradient-to-l from-transparent to-champagne/70" />
         </motion.div>
         <motion.p
-          lang="hi"
-          className="font-serif mb-5 text-sm tracking-[0.18em] text-[#a96949]"
-          initial={{ opacity: 0, y: 10 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.05 }}
-        >
-          श्री गणेशाय नमः
-        </motion.p>
-        <motion.p
           className="text-champagne text-xs font-medium uppercase tracking-[0.4em]"
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
@@ -78,7 +66,7 @@ export function Hero() {
         </motion.p>
 
         <motion.h1
-          className="font-script mt-5 text-7xl font-normal leading-none text-cream sm:text-9xl md:text-[9.5rem]"
+          className="font-serif mt-6 text-6xl font-light leading-none text-cream sm:text-8xl md:text-[8.5rem]"
           initial={{ opacity: 0, y: 28 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.25, ease: [0.22, 1, 0.36, 1] }}

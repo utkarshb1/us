@@ -125,7 +125,7 @@ function DayTimeline({ events }: { events: ScheduleItem[] }) {
             <Reveal delay={(i % 2) * 0.05}>
               <div className="relative pl-8 sm:grid sm:grid-cols-2 sm:gap-10 sm:pl-0">
                 <span
-                  className="absolute left-0 top-2 size-3.5 rounded-full border border-champagne bg-[#f7f0e2] sm:left-1/2 sm:-translate-x-1/2"
+                  className="absolute left-0 top-2 size-3.5 rounded-full border border-champagne bg-[#0b0a09] sm:left-1/2 sm:-translate-x-1/2"
                   aria-hidden="true"
                 >
                   <span className="absolute inset-0.5 rounded-full bg-champagne" />
@@ -150,7 +150,7 @@ function DayTimeline({ events }: { events: ScheduleItem[] }) {
                         {item.time}
                       </span>
                     </div>
-                    <h3 className="event-title font-script mt-2 text-3xl font-normal">
+                    <h3 className="font-serif mt-2 text-2xl font-light text-cream">
                       {item.title}
                     </h3>
                     <p className="mt-2 text-sm leading-relaxed text-cream/60">
@@ -178,7 +178,7 @@ function DayTimeline({ events }: { events: ScheduleItem[] }) {
 export function Schedule() {
   return (
     <section id="schedule" className="wedding-section section-saffron relative px-6 py-24 sm:py-32">
-      <div className="invitation-page-panel mx-auto max-w-4xl">
+      <div className="mx-auto max-w-4xl">
         <SectionHeading
           eyebrow="Two Days of Celebration"
           title="How it unfolds"
@@ -212,7 +212,7 @@ export function Schedule() {
             href={WEDDING.mapsUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="diya-glow group inline-flex items-center gap-2.5 rounded-full bg-champagne px-6 py-3 text-sm font-medium text-white transition-transform hover:scale-[1.03]"
+            className="diya-glow group inline-flex items-center gap-2.5 rounded-full bg-champagne px-6 py-3 text-sm font-medium text-[#2a2119] transition-transform hover:scale-[1.03]"
           >
             <MapPin className="size-4" aria-hidden="true" />
             Open venue in Google Maps
