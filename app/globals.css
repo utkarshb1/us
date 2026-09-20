@@ -206,22 +206,6 @@
       radial-gradient(circle at 100% 50%, rgb(169 116 79 / 8%), transparent 24rem);
   }
 
-  .wedding-section::after {
-    content: '';
-    position: absolute;
-    left: 0;
-    right: 0;
-    top: 0;
-    height: 18px;
-    pointer-events: none;
-    opacity: 0.55;
-    background:
-      radial-gradient(circle at 7px 1px, var(--marigold) 0 5px, transparent 6px) 0 0 /
-        28px 18px repeat-x,
-      radial-gradient(ellipse at 20px 4px, var(--leaf) 0 4px, transparent 5px) 0 0 /
-        28px 18px repeat-x;
-  }
-
   .invitation-card {
     position: relative;
     box-shadow:
