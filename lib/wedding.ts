@@ -9,7 +9,7 @@ export const WEDDING = {
   // First celebration — used for the hero countdown (local ISO, IST)
   date: new Date('2026-12-01T10:00:00+05:30'),
   mapsUrl: 'https://maps.app.goo.gl/KiXzjEyKrdMZhYLw5',
-  spotifyUrl: 'https://open.spotify.com/playlist/37i9dQZF1DXcBWIGoYBM5M',
+  musicUrl: 'https://music.youtube.com/watch?v=Het4pXDENBI&si=Q5SzqQqMNPfFrXeB',
 }
 
 export type ScheduleItem = {
