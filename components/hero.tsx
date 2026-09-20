@@ -12,7 +12,7 @@ export function Hero() {
     <section className="relative flex min-h-[100svh] w-full items-center justify-center overflow-hidden">
       {/* Background video layer with poster fallback */}
       <video
-        className="absolute inset-0 h-full w-full object-cover"
+        className="absolute inset-0 h-full w-full object-cover brightness-[1.18] saturate-[1.05]"
         poster={`${BASE_PATH}/hero.jpeg`}
         autoPlay
         muted
@@ -27,7 +27,7 @@ export function Hero() {
 
       {/* Slow cinematic drift on the still layer */}
       <motion.div
-        className="absolute inset-0 bg-cover bg-center"
+        className="absolute inset-0 bg-cover bg-center brightness-[1.18] saturate-[1.05]"
         style={{ backgroundImage: `url(${BASE_PATH}/hero.jpeg)` }}
         initial={{ scale: 1.08 }}
         animate={{ scale: 1.16 }}
@@ -37,11 +37,11 @@ export function Hero() {
 
       {/* Readability gradients */}
       <div
-        className="absolute inset-0 bg-gradient-to-b from-[#0b0a09]/70 via-[#0b0a09]/35 to-[#0b0a09]"
+        className="absolute inset-0 bg-gradient-to-b from-[#0b0a09]/50 via-[#0b0a09]/20 to-[#0b0a09]/75"
         aria-hidden="true"
       />
       <div
-        className="absolute inset-0 bg-gradient-to-t from-[#0b0a09] via-transparent to-[#0b0a09]/40"
+        className="absolute inset-0 bg-gradient-to-t from-[#0b0a09]/70 via-transparent to-[#0b0a09]/20"
         aria-hidden="true"
       />
       <FireworkShow />
