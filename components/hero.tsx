@@ -4,6 +4,7 @@ import { motion } from 'framer-motion'
 import { ChevronDown, MapPin } from 'lucide-react'
 import { BotanicalFrame } from '@/components/botanical-frame'
 import { Countdown } from '@/components/countdown'
+import { GaneshEmblem, PalaceSilhouette, PeacockAccent } from '@/components/indian-ornaments'
 import { BASE_PATH } from '@/lib/base-path'
 import { WEDDING } from '@/lib/wedding'
 
@@ -46,18 +47,17 @@ export function Hero() {
       />
       <div className="invitation-arch" aria-hidden="true" />
       <BotanicalFrame />
+      <PalaceSilhouette />
+      <PeacockAccent />
 
       <div className="relative z-10 flex flex-col items-center px-6 text-center">
         <motion.div
-          className="mb-2 flex items-center gap-3 text-champagne/80"
+          className="mb-1"
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.8 }}
-          aria-hidden="true"
         >
-          <span className="h-px w-10 bg-gradient-to-r from-transparent to-champagne/70" />
-          <span className="font-serif text-xl">❦</span>
-          <span className="h-px w-10 bg-gradient-to-l from-transparent to-champagne/70" />
+          <GaneshEmblem />
         </motion.div>
         <motion.p
           lang="hi"
@@ -78,7 +78,7 @@ export function Hero() {
         </motion.p>
 
         <motion.h1
-          className="font-script mt-5 text-7xl font-normal leading-none text-cream sm:text-9xl md:text-[9.5rem]"
+          className="font-serif mt-5 text-6xl font-light leading-none text-cream sm:text-8xl md:text-[8.5rem]"
           initial={{ opacity: 0, y: 28 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.25, ease: [0.22, 1, 0.36, 1] }}

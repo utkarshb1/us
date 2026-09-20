@@ -150,7 +150,7 @@ function DayTimeline({ events }: { events: ScheduleItem[] }) {
                         {item.time}
                       </span>
                     </div>
-                    <h3 className="event-title font-script mt-2 text-3xl font-normal">
+                    <h3 className="event-title font-serif mt-2 text-2xl font-light">
                       {item.title}
                     </h3>
                     <p className="mt-2 text-sm leading-relaxed text-cream/60">
