@@ -260,57 +260,23 @@
     position: absolute;
     left: 50%;
     top: 50%;
-    width: 11rem;
+    width: 8.5rem;
     aspect-ratio: 1;
     transform: translate(-50%, -50%);
     border-radius: 999px;
-    opacity: 0.22;
+    opacity: 0.13;
     pointer-events: none;
     background:
-      radial-gradient(
-        circle,
-        var(--champagne) 0 3%,
-        transparent 4% 14%,
-        #c86f88 15% 17%,
-        transparent 18% 28%,
-        var(--marigold) 29% 31%,
-        transparent 32% 47%,
-        var(--leaf) 48% 50%,
-        transparent 51%
-      ),
+      radial-gradient(circle, transparent 34%, var(--marigold) 35% 37%, transparent 38%),
       repeating-conic-gradient(
-        from 0deg,
-        var(--marigold) 0deg 6deg,
-        transparent 6deg 14deg,
-        #c86f88 14deg 19deg,
-        transparent 19deg 25deg,
-        var(--leaf) 25deg 30deg,
-        transparent 30deg 45deg
+        from 22.5deg,
+        var(--marigold) 0deg 7deg,
+        transparent 7deg 23deg,
+        var(--leaf) 23deg 28deg,
+        transparent 28deg 45deg
       );
-    -webkit-mask-image: radial-gradient(circle, black 0 69%, transparent 71%);
-    mask-image: radial-gradient(circle, black 0 69%, transparent 71%);
-  }
-
-  .rangoli-heading::after {
-    content: '';
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    width: 5.5rem;
-    aspect-ratio: 1;
-    transform: translate(-50%, -50%) rotate(22.5deg);
-    border-radius: 999px;
-    opacity: 0.16;
-    pointer-events: none;
-    background: repeating-conic-gradient(
-      from 0deg,
-      #c86f88 0deg 12deg,
-      transparent 12deg 30deg,
-      var(--marigold) 30deg 42deg,
-      transparent 42deg 60deg
-    );
-    -webkit-mask-image: radial-gradient(circle, transparent 0 32%, black 34% 68%, transparent 70%);
-    mask-image: radial-gradient(circle, transparent 0 32%, black 34% 68%, transparent 70%);
+    -webkit-mask-image: radial-gradient(circle, black 0 64%, transparent 66%);
+    mask-image: radial-gradient(circle, black 0 64%, transparent 66%);
   }
 
   .rangoli-heading > * {

@@ -117,7 +117,11 @@ function DayTimeline({ events }: { events: ScheduleItem[] }) {
 
       <ol className="space-y-8">
         {events.map((item, i) => (
-          <li key={item.title} className="relative">
+          <li
+            key={item.title}
+            className="relative"
+            style={{ zIndex: events.length - i }}
+          >
             <Reveal delay={(i % 2) * 0.05}>
               <div className="relative pl-8 sm:grid sm:grid-cols-2 sm:gap-10 sm:pl-0">
                 <span
