@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion'
 import { ChevronDown, MapPin } from 'lucide-react'
 import { Countdown } from '@/components/countdown'
+import { FireworkShow } from '@/components/firework-show'
 import { BASE_PATH } from '@/lib/base-path'
 import { WEDDING } from '@/lib/wedding'
 
@@ -43,6 +44,7 @@ export function Hero() {
         className="absolute inset-0 bg-gradient-to-t from-[#0b0a09] via-transparent to-[#0b0a09]/40"
         aria-hidden="true"
       />
+      <FireworkShow />
 
       <div className="relative z-10 flex flex-col items-center px-6 text-center">
         <motion.div
