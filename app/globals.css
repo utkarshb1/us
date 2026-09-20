@@ -289,7 +289,6 @@
       );
     -webkit-mask-image: radial-gradient(circle, black 0 69%, transparent 71%);
     mask-image: radial-gradient(circle, black 0 69%, transparent 71%);
-    animation: rangoli-spin 36s linear infinite;
   }
 
   .rangoli-heading::after {
@@ -378,15 +377,6 @@
   }
 }
 
-@keyframes rangoli-spin {
-  from {
-    transform: translate(-50%, -50%) rotate(0deg);
-  }
-  to {
-    transform: translate(-50%, -50%) rotate(360deg);
-  }
-}
-
 @keyframes petal-fall {
   0% {
     opacity: 0;
@@ -459,10 +449,6 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .rangoli-heading::before {
-    animation: none;
-  }
-
   .petal,
   .confetti-piece {
     display: none;
