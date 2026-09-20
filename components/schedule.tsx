@@ -125,7 +125,7 @@ function DayTimeline({ events }: { events: ScheduleItem[] }) {
             <Reveal delay={(i % 2) * 0.05}>
               <div className="relative pl-8 sm:grid sm:grid-cols-2 sm:gap-10 sm:pl-0">
                 <span
-                  className="absolute left-0 top-2 size-3.5 rounded-full border border-champagne bg-[#2f1921] sm:left-1/2 sm:-translate-x-1/2"
+                  className="absolute left-0 top-2 size-3.5 rounded-full border border-champagne bg-[#0b0a09] sm:left-1/2 sm:-translate-x-1/2"
                   aria-hidden="true"
                 >
                   <span className="absolute inset-0.5 rounded-full bg-champagne" />

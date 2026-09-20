@@ -25,7 +25,7 @@ export function Moments() {
               key={m.src}
               delay={(i % 3) * 0.08}
               className={[
-                'group relative overflow-hidden rounded-2xl bg-[#2f1921]',
+                'group relative overflow-hidden rounded-2xl bg-[#0b0a09]',
                 m.span === 'row' ? 'row-span-2' : '',
                 m.span === 'col' ? 'sm:col-span-2' : '',
               ].join(' ')}
@@ -39,7 +39,7 @@ export function Moments() {
                 transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
               />
               {/* Live-photo style shimmer + vignette on hover */}
-              <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[#2f1921]/70 via-transparent to-transparent opacity-70 transition-opacity duration-500 group-hover:opacity-90" />
+              <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[#0b0a09]/70 via-transparent to-transparent opacity-70 transition-opacity duration-500 group-hover:opacity-90" />
               <motion.div
                 className="pointer-events-none absolute inset-0 rounded-2xl ring-1 ring-inset ring-champagne/0 group-hover:ring-champagne/30"
                 aria-hidden="true"
