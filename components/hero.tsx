@@ -36,11 +36,11 @@ export function Hero() {
 
       {/* Readability gradients */}
       <div
-        className="absolute inset-0 bg-gradient-to-b from-[#0b0a09]/50 via-[#0b0a09]/20 to-[#0b0a09]/75"
+        className="absolute inset-0 bg-gradient-to-b from-[#2f1921]/45 via-[#2f1921]/15 to-[#2f1921]/80"
         aria-hidden="true"
       />
       <div
-        className="absolute inset-0 bg-gradient-to-t from-[#0b0a09]/70 via-transparent to-[#0b0a09]/20"
+        className="absolute inset-0 bg-gradient-to-t from-[#2f1921]/75 via-transparent to-[#2f1921]/15"
         aria-hidden="true"
       />
 

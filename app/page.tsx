@@ -8,7 +8,7 @@ import { WEDDING } from '@/lib/wedding'
 
 export default function Page() {
   return (
-    <main className="relative overflow-x-hidden bg-[#0b0a09]">
+    <main className="relative overflow-x-hidden bg-[#2f1921]">
       <PetalFall />
       <Hero />
       <Moments />
