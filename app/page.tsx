@@ -14,6 +14,9 @@ export default function Page() {
       <Rsvp />
 
       <footer className="border-t border-cream/10 px-6 py-14 text-center">
+        <p lang="hi" className="font-serif mb-8 text-lg tracking-[0.22em] text-champagne/75">
+          ॥ शुभ विवाह ॥
+        </p>
         <div className="mx-auto grid max-w-2xl grid-cols-[1fr_auto_1fr] items-start gap-3">
           <div>
             <p className="font-serif text-4xl font-light text-cream">{WEDDING.couple[0]}</p>

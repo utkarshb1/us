@@ -6,6 +6,19 @@ import { Countdown } from '@/components/countdown'
 import { BASE_PATH } from '@/lib/base-path'
 import { WEDDING } from '@/lib/wedding'
 
+const PETALS = [
+  { left: '5%', delay: '0s', duration: '15s', size: 10 },
+  { left: '13%', delay: '5s', duration: '18s', size: 8 },
+  { left: '22%', delay: '2s', duration: '14s', size: 12 },
+  { left: '33%', delay: '8s', duration: '19s', size: 9 },
+  { left: '43%', delay: '4s', duration: '16s', size: 11 },
+  { left: '53%', delay: '11s', duration: '20s', size: 8 },
+  { left: '62%', delay: '1s', duration: '17s', size: 12 },
+  { left: '72%', delay: '7s', duration: '15s', size: 9 },
+  { left: '81%', delay: '3s', duration: '19s', size: 11 },
+  { left: '90%', delay: '10s', duration: '16s', size: 8 },
+] as const
+
 export function Hero() {
   return (
     <section className="relative flex min-h-[100svh] w-full items-center justify-center overflow-hidden">
@@ -44,7 +57,34 @@ export function Hero() {
         aria-hidden="true"
       />
 
+      <div className="pointer-events-none absolute inset-0 z-[1] overflow-hidden" aria-hidden="true">
+        {PETALS.map((petal, index) => (
+          <span
+            key={index}
+            className="petal"
+            style={{
+              left: petal.left,
+              animationDelay: petal.delay,
+              animationDuration: petal.duration,
+              width: petal.size,
+              height: petal.size * 1.45,
+            }}
+          />
+        ))}
+      </div>
+
       <div className="relative z-10 flex flex-col items-center px-6 text-center">
+        <motion.div
+          className="mb-5 flex items-center gap-3 text-champagne/75"
+          initial={{ opacity: 0, scale: 0.9 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.8 }}
+          aria-hidden="true"
+        >
+          <span className="h-px w-10 bg-gradient-to-r from-transparent to-champagne/70" />
+          <span className="font-serif text-xl">❦</span>
+          <span className="h-px w-10 bg-gradient-to-l from-transparent to-champagne/70" />
+        </motion.div>
         <motion.p
           className="text-champagne text-xs font-medium uppercase tracking-[0.4em]"
           initial={{ opacity: 0, y: 16 }}

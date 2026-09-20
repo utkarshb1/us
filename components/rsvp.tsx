@@ -66,7 +66,7 @@ export function Rsvp() {
   }
 
   return (
-    <section id="rsvp" className="relative px-6 py-24 sm:py-32">
+    <section id="rsvp" className="wedding-section relative px-6 py-24 sm:py-32">
       {/* Ambient glow */}
       <div
         className="pointer-events-none absolute left-1/2 top-1/3 -z-0 h-[420px] w-[420px] -translate-x-1/2 rounded-full bg-champagne/10 blur-[120px]"
@@ -83,7 +83,7 @@ export function Rsvp() {
         </Reveal>
 
         <Reveal delay={0.15}>
-          <div className="glass mt-12 overflow-hidden rounded-3xl p-6 sm:p-9">
+          <div className="invitation-card glass mt-12 overflow-hidden rounded-3xl p-6 sm:p-9">
             <AnimatePresence mode="wait">
               {submitted ? (
                 <motion.div

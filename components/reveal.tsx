@@ -48,6 +48,13 @@ export function SectionHeading({
           {title}
         </h2>
       </Reveal>
+      <Reveal delay={0.14}>
+        <div className="mt-5 flex w-36 items-center gap-3 text-champagne/70" aria-hidden="true">
+          <span className="h-px flex-1 bg-gradient-to-r from-transparent to-champagne/70" />
+          <span className="font-serif text-lg leading-none">❦</span>
+          <span className="h-px flex-1 bg-gradient-to-l from-transparent to-champagne/70" />
+        </div>
+      </Reveal>
     </div>
   )
 }

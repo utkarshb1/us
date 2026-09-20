@@ -1,11 +1,36 @@
 'use client'
 
 import { AnimatePresence, motion } from 'framer-motion'
-import { Apple, CalendarPlus, ChevronDown, Clock, MapPin } from 'lucide-react'
+import {
+  Apple,
+  CalendarPlus,
+  ChevronDown,
+  Clock,
+  Flower2,
+  Gem,
+  HeartHandshake,
+  MapPin,
+  Music2,
+  Sparkles,
+} from 'lucide-react'
 import { useEffect, useRef, useState } from 'react'
 import { googleCalendarUrl, icsDataUri } from '@/lib/calendar'
 import { SCHEDULE, WEDDING, type ScheduleItem } from '@/lib/wedding'
 import { Reveal, SectionHeading } from '@/components/reveal'
+
+function EventIcon({ title }: { title: string }) {
+  const Icon = title.includes('Haldi')
+    ? Flower2
+    : title === 'Engagement'
+      ? Gem
+      : title === 'Sangeet'
+        ? Music2
+        : title === 'Wedding Ceremony'
+          ? HeartHandshake
+          : Sparkles
+
+  return <Icon className="size-5" aria-hidden="true" />
+}
 
 function AddToCalendar({ item }: { item: ScheduleItem }) {
   const [open, setOpen] = useState(false)
@@ -100,6 +125,11 @@ function DayTimeline({ events }: { events: ScheduleItem[] }) {
                   }
                 >
                   <div className="glass rounded-2xl p-5">
+                    <div className={`mb-3 flex ${i % 2 === 0 ? 'sm:justify-end' : ''}`}>
+                      <span className="flex size-10 items-center justify-center rounded-full border border-champagne/25 bg-champagne/10 text-champagne">
+                        <EventIcon title={item.title} />
+                      </span>
+                    </div>
                     <div
                       className={`flex items-center gap-2 text-champagne ${i % 2 === 0 ? 'sm:justify-end' : ''}`}
                     >
@@ -135,7 +165,7 @@ function DayTimeline({ events }: { events: ScheduleItem[] }) {
 
 export function Schedule() {
   return (
-    <section id="schedule" className="relative px-6 py-24 sm:py-32">
+    <section id="schedule" className="wedding-section relative px-6 py-24 sm:py-32">
       <div className="mx-auto max-w-4xl">
         <SectionHeading
           eyebrow="Two Days of Celebration"

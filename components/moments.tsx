@@ -6,7 +6,7 @@ import { Reveal, SectionHeading } from '@/components/reveal'
 
 export function Moments() {
   return (
-    <section id="moments" className="relative px-6 py-24 sm:py-32">
+    <section id="moments" className="wedding-section relative px-6 py-24 sm:py-32">
       <div className="mx-auto max-w-6xl">
         <SectionHeading
           eyebrow="The Moments"
