@@ -6,20 +6,20 @@ import { Reveal, SectionHeading } from '@/components/reveal'
 
 export function Moments() {
   return (
-    <section id="moments" className="wedding-section section-rose relative px-6 py-24 sm:py-32">
+    <section id="moments" className="wedding-section section-rose relative px-2.5 py-10 sm:px-6 sm:py-20">
       <div className="invitation-page-panel mx-auto max-w-6xl">
         <SectionHeading
           eyebrow="The Moments"
           title="A love, in frames"
-          className="max-w-xl"
+          className="mx-auto max-w-xl text-center sm:mx-0 sm:text-left"
         />
         <Reveal delay={0.12}>
-          <p className="mt-5 max-w-md text-pretty text-sm leading-relaxed text-cream/60">
+          <p className="mx-auto mt-5 max-w-md text-pretty text-center text-sm leading-relaxed text-cream/60 sm:mx-0 sm:text-left">
             Little glimpses of us.
           </p>
         </Reveal>
 
-        <div className="mt-14 grid auto-rows-[220px] grid-cols-2 gap-3 sm:auto-rows-[260px] sm:gap-4 lg:grid-cols-3">
+        <div className="mt-10 grid auto-rows-[340px] grid-cols-1 gap-3 sm:mt-14 sm:auto-rows-[260px] sm:grid-cols-2 sm:gap-4 lg:grid-cols-3">
           {MOMENTS.map((m, i) => (
             <Reveal
               key={m.src}

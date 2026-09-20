@@ -29,19 +29,19 @@ export function Countdown({ target }: { target: Date }) {
   ]
 
   return (
-    <div className="flex items-stretch gap-2 sm:gap-3">
+    <div className="flex items-stretch gap-1 sm:gap-3">
       {units.map((u) => (
         <div
           key={u.label}
-          className="glass flex min-w-[68px] flex-col items-center rounded-xl px-3 py-3 sm:min-w-[84px] sm:px-5 sm:py-4"
+          className="glass flex min-w-[54px] flex-col items-center rounded-lg px-2 py-2 sm:min-w-[84px] sm:rounded-xl sm:px-5 sm:py-4"
         >
           <span
-            className="font-serif text-3xl font-light tabular-nums text-cream sm:text-4xl"
+            className="font-serif text-2xl font-light tabular-nums text-cream sm:text-4xl"
             aria-hidden={u.value === undefined}
           >
             {u.value === undefined ? '--' : String(u.value).padStart(2, '0')}
           </span>
-          <span className="mt-1 text-[10px] font-medium uppercase tracking-[0.22em] text-cream/60">
+          <span className="mt-1 text-[8px] font-medium uppercase tracking-[0.12em] text-cream/60 sm:text-[10px] sm:tracking-[0.22em]">
             {u.label}
           </span>
         </div>

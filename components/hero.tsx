@@ -1,8 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { ChevronDown, MapPin } from 'lucide-react'
-import { BotanicalFrame } from '@/components/botanical-frame'
+import { MapPin } from 'lucide-react'
 import { Countdown } from '@/components/countdown'
 import { GaneshEmblem, PalaceSilhouette, PeacockAccent } from '@/components/indian-ornaments'
 import { BASE_PATH } from '@/lib/base-path'
@@ -46,7 +45,6 @@ export function Hero() {
         aria-hidden="true"
       />
       <div className="invitation-arch" aria-hidden="true" />
-      <BotanicalFrame />
       <PalaceSilhouette />
       <PeacockAccent />
 
@@ -104,7 +102,7 @@ export function Hero() {
         </motion.div>
 
         <motion.div
-          className="mt-10"
+          className="mt-6 sm:mt-10"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.9, delay: 0.7 }}
@@ -113,23 +111,6 @@ export function Hero() {
         </motion.div>
       </div>
 
-      {/* Scroll indicator */}
-      <motion.a
-        href="#moments"
-        className="absolute bottom-7 left-1/2 z-10 flex -translate-x-1/2 flex-col items-center gap-2 text-cream/60 transition-colors hover:text-cream"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 1.1, duration: 1 }}
-        aria-label="Scroll to explore"
-      >
-        <span className="text-[10px] uppercase tracking-[0.3em]">Scroll</span>
-        <motion.span
-          animate={{ y: [0, 7, 0] }}
-          transition={{ duration: 1.8, repeat: Infinity, ease: 'easeInOut' }}
-        >
-          <ChevronDown className="size-5" aria-hidden="true" />
-        </motion.span>
-      </motion.a>
     </section>
   )
 }

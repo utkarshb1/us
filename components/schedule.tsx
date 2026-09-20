@@ -177,7 +177,7 @@ function DayTimeline({ events }: { events: ScheduleItem[] }) {
 
 export function Schedule() {
   return (
-    <section id="schedule" className="wedding-section section-saffron relative px-6 py-24 sm:py-32">
+    <section id="schedule" className="wedding-section section-saffron relative px-2.5 py-10 sm:px-6 sm:py-20">
       <div className="invitation-page-panel mx-auto max-w-4xl">
         <SectionHeading
           eyebrow="Two Days of Celebration"

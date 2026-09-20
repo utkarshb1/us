@@ -97,7 +97,7 @@ export function Rsvp() {
   }
 
   return (
-    <section id="rsvp" className="wedding-section section-sage relative px-6 py-24 sm:py-32">
+    <section id="rsvp" className="wedding-section section-sage relative px-2.5 py-10 sm:px-6 sm:py-20">
       {/* Ambient glow */}
       <div
         className="pointer-events-none absolute left-1/2 top-1/3 -z-0 h-[420px] w-[420px] -translate-x-1/2 rounded-full bg-champagne/10 blur-[120px]"

@@ -220,9 +220,9 @@
 
   .invitation-page-panel {
     position: relative;
-    padding: clamp(1.5rem, 5vw, 4rem);
+    padding: 3rem 0.75rem 1.5rem;
     border: 1px solid rgb(130 123 111 / 34%);
-    border-radius: 5rem 5rem 1.75rem 1.75rem;
+    border-radius: 2.5rem 2.5rem 1.25rem 1.25rem;
     background:
       linear-gradient(rgb(255 252 244 / 78%), rgb(255 249 237 / 72%)),
       repeating-linear-gradient(90deg, rgb(90 72 51 / 2%) 0 1px, transparent 1px 5px);
@@ -230,6 +230,20 @@
       inset 0 0 0 6px rgb(247 240 226 / 65%),
       inset 0 0 0 7px rgb(183 69 112 / 12%),
       0 24px 65px rgb(93 67 47 / 10%);
+  }
+
+  @media (min-width: 640px) {
+    .invitation-page-panel {
+      padding: 2.5rem;
+      border-radius: 4rem 4rem 1.75rem 1.75rem;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .invitation-page-panel {
+      padding: 4rem;
+      border-radius: 5rem 5rem 1.75rem 1.75rem;
+    }
   }
 
   .wedding-section {
@@ -268,13 +282,13 @@
 
   .mandala-watermark {
     position: absolute;
-    left: -2.5rem;
+    left: 0.25rem;
     top: 50%;
-    width: 8rem;
+    width: 5.5rem;
     aspect-ratio: 1;
     transform: translateY(-50%);
     border-radius: 999px;
-    opacity: 0.12;
+    opacity: 0.08;
     pointer-events: none;
     background:
       radial-gradient(circle, transparent 31%, var(--section-accent, var(--champagne)) 32% 34%, transparent 35%),
@@ -285,6 +299,14 @@
       );
     -webkit-mask-image: radial-gradient(circle, black 0 62%, transparent 64%);
     mask-image: radial-gradient(circle, black 0 62%, transparent 64%);
+  }
+
+  @media (min-width: 640px) {
+    .mandala-watermark {
+      left: 1rem;
+      width: 8rem;
+      opacity: 0.12;
+    }
   }
 
   .invitation-card {
