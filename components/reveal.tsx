@@ -37,7 +37,8 @@ export function SectionHeading({
   className?: string
 }) {
   return (
-    <div className={className}>
+    <div className={`section-heading relative ${className ?? ''}`}>
+      <span className="mandala-watermark" aria-hidden="true" />
       <Reveal>
         <p className="text-champagne/80 text-xs font-medium uppercase tracking-[0.35em]">
           {eyebrow}

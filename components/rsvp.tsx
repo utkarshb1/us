@@ -15,6 +15,34 @@ const inputClass =
 const labelClass =
   'mb-2 block text-xs font-medium uppercase tracking-[0.2em] text-cream/60'
 
+const CONFETTI = [
+  ['8%', '#f6b934', '0s'],
+  ['15%', '#d96b5f', '0.12s'],
+  ['23%', '#91a86b', '0.24s'],
+  ['32%', '#d786a8', '0.08s'],
+  ['41%', '#f6b934', '0.32s'],
+  ['50%', '#9b79c6', '0.16s'],
+  ['59%', '#91a86b', '0.28s'],
+  ['68%', '#d96b5f', '0.04s'],
+  ['77%', '#e4c692', '0.2s'],
+  ['86%', '#d786a8', '0.36s'],
+  ['93%', '#f6b934', '0.1s'],
+] as const
+
+function CelebrationConfetti() {
+  return (
+    <div className="pointer-events-none absolute inset-0 overflow-hidden" aria-hidden="true">
+      {CONFETTI.map(([left, color, delay], index) => (
+        <span
+          key={index}
+          className="confetti-piece"
+          style={{ left, backgroundColor: color, animationDelay: delay }}
+        />
+      ))}
+    </div>
+  )
+}
+
 export function Rsvp() {
   const [submitted, setSubmitted] = useState(false)
   const [submitting, setSubmitting] = useState(false)
@@ -66,7 +94,7 @@ export function Rsvp() {
   }
 
   return (
-    <section id="rsvp" className="wedding-section relative px-6 py-24 sm:py-32">
+    <section id="rsvp" className="wedding-section section-sage relative px-6 py-24 sm:py-32">
       {/* Ambient glow */}
       <div
         className="pointer-events-none absolute left-1/2 top-1/3 -z-0 h-[420px] w-[420px] -translate-x-1/2 rounded-full bg-champagne/10 blur-[120px]"
@@ -92,8 +120,9 @@ export function Rsvp() {
                   animate={{ opacity: 1, scale: 1 }}
                   exit={{ opacity: 0 }}
                   transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-                  className="flex flex-col items-center py-10 text-center"
+                  className="relative flex flex-col items-center overflow-hidden py-10 text-center"
                 >
+                  <CelebrationConfetti />
                   <motion.span
                     initial={{ scale: 0 }}
                     animate={{ scale: 1 }}
@@ -255,7 +284,7 @@ export function Rsvp() {
                   <button
                     type="submit"
                     disabled={submitting}
-                    className="w-full rounded-xl bg-champagne py-3.5 text-sm font-semibold text-[#2a2119] transition-transform hover:scale-[1.01] active:scale-[0.99] disabled:cursor-wait disabled:opacity-60"
+                    className="diya-glow w-full rounded-xl bg-champagne py-3.5 text-sm font-semibold text-[#2a2119] transition-transform hover:scale-[1.01] active:scale-[0.99] disabled:cursor-wait disabled:opacity-60"
                   >
                     {submitting
                       ? 'Sending…'

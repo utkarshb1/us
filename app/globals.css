@@ -196,14 +196,122 @@
     border: 1px solid color-mix(in oklab, var(--cream) 14%, transparent);
   }
 
+  .wedding-section {
+    --section-accent: var(--champagne);
+  }
+
+  .section-rose {
+    --section-accent: #c86f88;
+  }
+
+  .section-saffron {
+    --section-accent: #e09a32;
+  }
+
+  .section-sage {
+    --section-accent: #78905c;
+  }
+
   .wedding-section::before {
     content: '';
     position: absolute;
     inset: 0;
     pointer-events: none;
     background:
-      radial-gradient(circle at 0 50%, rgb(228 198 146 / 7%), transparent 24rem),
-      radial-gradient(circle at 100% 50%, rgb(169 116 79 / 8%), transparent 24rem);
+      radial-gradient(
+        circle at 0 50%,
+        color-mix(in oklab, var(--section-accent) 12%, transparent),
+        transparent 25rem
+      ),
+      radial-gradient(
+        circle at 100% 50%,
+        color-mix(in oklab, var(--section-accent) 10%, transparent),
+        transparent 25rem
+      );
+  }
+
+  .mandala-watermark {
+    position: absolute;
+    left: -2.5rem;
+    top: 50%;
+    width: 8rem;
+    aspect-ratio: 1;
+    transform: translateY(-50%);
+    border-radius: 999px;
+    opacity: 0.12;
+    pointer-events: none;
+    background:
+      radial-gradient(circle, transparent 31%, var(--section-accent, var(--champagne)) 32% 34%, transparent 35%),
+      repeating-conic-gradient(
+        from 0deg,
+        var(--section-accent, var(--champagne)) 0deg 5deg,
+        transparent 5deg 20deg
+      );
+    -webkit-mask-image: radial-gradient(circle, black 0 62%, transparent 64%);
+    mask-image: radial-gradient(circle, black 0 62%, transparent 64%);
+  }
+
+  .rangoli-heading {
+    position: relative;
+  }
+
+  .rangoli-heading::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 8.5rem;
+    aspect-ratio: 1;
+    transform: translate(-50%, -50%);
+    border-radius: 999px;
+    opacity: 0.13;
+    pointer-events: none;
+    background:
+      radial-gradient(circle, transparent 34%, var(--marigold) 35% 37%, transparent 38%),
+      repeating-conic-gradient(
+        from 22.5deg,
+        var(--marigold) 0deg 7deg,
+        transparent 7deg 23deg,
+        var(--leaf) 23deg 28deg,
+        transparent 28deg 45deg
+      );
+    -webkit-mask-image: radial-gradient(circle, black 0 64%, transparent 66%);
+    mask-image: radial-gradient(circle, black 0 64%, transparent 66%);
+  }
+
+  .rangoli-heading > * {
+    position: relative;
+    z-index: 1;
+  }
+
+  .floral-corners {
+    position: relative;
+  }
+
+  .floral-corners::before,
+  .floral-corners::after {
+    content: '✿';
+    position: absolute;
+    z-index: 5;
+    color: var(--marigold);
+    font-size: 1.9rem;
+    line-height: 1;
+    pointer-events: none;
+    text-shadow:
+      1.2rem 0.25rem 0 #c86f88,
+      0.45rem 1.2rem 0 #78905c;
+    filter: drop-shadow(0 4px 8px rgb(0 0 0 / 30%));
+  }
+
+  .floral-corners::before {
+    left: -0.6rem;
+    top: -0.8rem;
+  }
+
+  .floral-corners::after {
+    right: -0.6rem;
+    bottom: -0.8rem;
+    transform: rotate(180deg);
   }
 
   .invitation-card {
@@ -216,14 +324,17 @@
 
   .invitation-card::before,
   .invitation-card::after {
-    content: '❦';
+    content: '✿';
     position: absolute;
     z-index: 2;
-    color: rgb(228 198 146 / 55%);
+    color: var(--marigold);
     font-family: var(--font-serif), ui-serif, Georgia, serif;
-    font-size: 1.4rem;
+    font-size: 1.5rem;
     line-height: 1;
     pointer-events: none;
+    text-shadow:
+      0.9rem 0.2rem 0 #c86f88,
+      0.3rem 0.9rem 0 #78905c;
   }
 
   .invitation-card::before {
@@ -235,6 +346,56 @@
     right: 1rem;
     bottom: 1rem;
     transform: rotate(180deg);
+  }
+
+  .event-card {
+    --event-accent: var(--champagne);
+    border-color: color-mix(in oklab, var(--event-accent) 36%, transparent);
+    background:
+      linear-gradient(
+        135deg,
+        color-mix(in oklab, var(--event-accent) 13%, transparent),
+        color-mix(in oklab, var(--cream) 4%, transparent)
+      );
+    box-shadow: inset 3px 0 0 color-mix(in oklab, var(--event-accent) 70%, transparent);
+  }
+
+  .event-haldi {
+    --event-accent: #f4b52f;
+  }
+
+  .event-engagement {
+    --event-accent: #d7799a;
+  }
+
+  .event-sangeet {
+    --event-accent: #9b79c6;
+  }
+
+  .event-wedding {
+    --event-accent: #d85d4f;
+  }
+
+  .event-reception {
+    --event-accent: #62a27b;
+  }
+
+  .event-icon {
+    color: var(--event-accent);
+    border-color: color-mix(in oklab, var(--event-accent) 40%, transparent);
+    background-color: color-mix(in oklab, var(--event-accent) 15%, transparent);
+    box-shadow: 0 0 24px color-mix(in oklab, var(--event-accent) 18%, transparent);
+  }
+
+  .event-time {
+    color: var(--event-accent);
+  }
+
+  .diya-glow {
+    box-shadow:
+      0 0 0 1px rgb(255 229 166 / 18%),
+      0 0 24px rgb(244 181 47 / 22%),
+      0 10px 35px rgb(216 93 79 / 13%);
   }
 }
 
@@ -276,6 +437,29 @@
   background: linear-gradient(135deg, #e9a07f, #bc6257);
 }
 
+@keyframes confetti-fall {
+  0% {
+    opacity: 0;
+    transform: translate3d(0, -24px, 0) rotate(0deg);
+  }
+  12% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: translate3d(18px, 280px, 0) rotate(620deg);
+  }
+}
+
+.confetti-piece {
+  position: absolute;
+  top: -12px;
+  width: 7px;
+  height: 12px;
+  border-radius: 2px;
+  animation: confetti-fall 2.4s ease-in forwards;
+}
+
 @keyframes equalize {
   0%,
   100% {
@@ -287,7 +471,8 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .petal {
+  .petal,
+  .confetti-piece {
     display: none;
   }
 }

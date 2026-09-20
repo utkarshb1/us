@@ -32,6 +32,14 @@ function EventIcon({ title }: { title: string }) {
   return <Icon className="size-5" aria-hidden="true" />
 }
 
+function eventColorClass(title: string) {
+  if (title.includes('Haldi')) return 'event-haldi'
+  if (title === 'Engagement') return 'event-engagement'
+  if (title === 'Sangeet') return 'event-sangeet'
+  if (title === 'Wedding Ceremony') return 'event-wedding'
+  return 'event-reception'
+}
+
 function AddToCalendar({ item }: { item: ScheduleItem }) {
   const [open, setOpen] = useState(false)
   const ref = useRef<HTMLDivElement>(null)
@@ -124,14 +132,14 @@ function DayTimeline({ events }: { events: ScheduleItem[] }) {
                     i % 2 === 0 ? 'sm:col-start-1 sm:text-right' : 'sm:col-start-2'
                   }
                 >
-                  <div className="glass rounded-2xl p-5">
+                  <div className={`event-card glass rounded-2xl p-5 ${eventColorClass(item.title)}`}>
                     <div className={`mb-3 flex ${i % 2 === 0 ? 'sm:justify-end' : ''}`}>
-                      <span className="flex size-10 items-center justify-center rounded-full border border-champagne/25 bg-champagne/10 text-champagne">
+                      <span className="event-icon flex size-10 items-center justify-center rounded-full border">
                         <EventIcon title={item.title} />
                       </span>
                     </div>
                     <div
-                      className={`flex items-center gap-2 text-champagne ${i % 2 === 0 ? 'sm:justify-end' : ''}`}
+                      className={`event-time flex items-center gap-2 ${i % 2 === 0 ? 'sm:justify-end' : ''}`}
                     >
                       <Clock className="size-3.5" aria-hidden="true" />
                       <span className="text-xs font-medium uppercase tracking-[0.2em]">
@@ -165,7 +173,7 @@ function DayTimeline({ events }: { events: ScheduleItem[] }) {
 
 export function Schedule() {
   return (
-    <section id="schedule" className="wedding-section relative px-6 py-24 sm:py-32">
+    <section id="schedule" className="wedding-section section-saffron relative px-6 py-24 sm:py-32">
       <div className="mx-auto max-w-4xl">
         <SectionHeading
           eyebrow="Two Days of Celebration"
@@ -177,7 +185,7 @@ export function Schedule() {
           {SCHEDULE.map((day) => (
             <div key={day.label}>
               <Reveal>
-                <div className="flex flex-col items-center text-center">
+                <div className="rangoli-heading flex flex-col items-center text-center">
                   <span className="text-xs font-medium uppercase tracking-[0.3em] text-champagne">
                     {day.label}
                   </span>
@@ -200,7 +208,7 @@ export function Schedule() {
             href={WEDDING.mapsUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="group inline-flex items-center gap-2.5 rounded-full bg-champagne px-6 py-3 text-sm font-medium text-[#2a2119] transition-transform hover:scale-[1.03]"
+            className="diya-glow group inline-flex items-center gap-2.5 rounded-full bg-champagne px-6 py-3 text-sm font-medium text-[#2a2119] transition-transform hover:scale-[1.03]"
           >
             <MapPin className="size-4" aria-hidden="true" />
             Open venue in Google Maps

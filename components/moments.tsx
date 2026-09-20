@@ -6,7 +6,7 @@ import { Reveal, SectionHeading } from '@/components/reveal'
 
 export function Moments() {
   return (
-    <section id="moments" className="wedding-section relative px-6 py-24 sm:py-32">
+    <section id="moments" className="wedding-section section-rose relative px-6 py-24 sm:py-32">
       <div className="mx-auto max-w-6xl">
         <SectionHeading
           eyebrow="The Moments"
@@ -19,7 +19,7 @@ export function Moments() {
           </p>
         </Reveal>
 
-        <div className="mt-14 grid auto-rows-[220px] grid-cols-2 gap-3 sm:auto-rows-[260px] sm:gap-4 lg:grid-cols-3">
+        <div className="floral-corners mt-14 grid auto-rows-[220px] grid-cols-2 gap-3 sm:auto-rows-[260px] sm:gap-4 lg:grid-cols-3">
           {MOMENTS.map((m, i) => (
             <Reveal
               key={m.src}

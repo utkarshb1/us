@@ -1,10 +1,9 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { ExternalLink, Pause, Play } from 'lucide-react'
+import { Pause, Play } from 'lucide-react'
 import { useEffect, useRef, useState } from 'react'
 import { BASE_PATH } from '@/lib/base-path'
-import { WEDDING } from '@/lib/wedding'
 
 function Equalizer({ active }: { active: boolean }) {
   return (
@@ -89,9 +88,9 @@ export function MusicPlayer() {
         onClick={togglePlayback}
         aria-pressed={playing}
         aria-label={playing ? 'Pause wedding song' : 'Play wedding song'}
-        className="flex items-center gap-2.5 rounded-full bg-champagne py-2.5 pl-3 pr-4 text-[#2a2119] shadow-lg shadow-black/30 transition-transform hover:scale-105"
+        className="diya-glow flex size-14 items-center justify-center gap-1.5 rounded-full bg-champagne text-[#2a2119] shadow-lg shadow-black/30 transition-transform hover:scale-105"
       >
-        <span className="flex size-6 items-center justify-center">
+        <span className="flex size-5 items-center justify-center">
           {playing ? (
             <Pause className="size-4" aria-hidden="true" />
           ) : (
@@ -99,19 +98,7 @@ export function MusicPlayer() {
           )}
         </span>
         <Equalizer active={playing} />
-        <span className="text-xs font-semibold uppercase tracking-[0.15em]">
-          {playing ? 'Now Playing' : 'Wedding Vibe'}
-        </span>
       </button>
-      <a
-        href={WEDDING.musicUrl}
-        target="_blank"
-        rel="noopener noreferrer"
-        aria-label="Open the song on YouTube Music"
-        className="glass flex size-10 items-center justify-center rounded-full text-cream/80 transition-colors hover:text-cream"
-      >
-        <ExternalLink className="size-4" aria-hidden="true" />
-      </a>
     </motion.div>
   )
 }
