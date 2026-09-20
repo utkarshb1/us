@@ -1,7 +1,3 @@
-'use client'
-
-import { useEffect, useState } from 'react'
-
 const PETALS = [
   { left: '5%', delay: '0s', duration: '15s', size: 10, kind: 'marigold' },
   { left: '13%', delay: '5s', duration: '18s', size: 8, kind: 'leaf' },
@@ -16,25 +12,6 @@ const PETALS = [
 ] as const
 
 export function PetalFall() {
-  const [visible, setVisible] = useState(false)
-
-  useEffect(() => {
-    const updateVisibility = () => {
-      setVisible(window.scrollY >= window.innerHeight * 0.85)
-    }
-
-    updateVisibility()
-    window.addEventListener('scroll', updateVisibility, { passive: true })
-    window.addEventListener('resize', updateVisibility)
-
-    return () => {
-      window.removeEventListener('scroll', updateVisibility)
-      window.removeEventListener('resize', updateVisibility)
-    }
-  }, [])
-
-  if (!visible) return null
-
   return (
     <div
       className="pointer-events-none fixed inset-0 z-40 overflow-hidden"
