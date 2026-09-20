@@ -189,7 +189,7 @@ export function Schedule() {
           {SCHEDULE.map((day) => (
             <div key={day.label}>
               <Reveal>
-                <div className="rangoli-heading flex flex-col items-center text-center">
+                <div className="flex flex-col items-center text-center">
                   <span className="text-xs font-medium uppercase tracking-[0.3em] text-champagne">
                     {day.label}
                   </span>

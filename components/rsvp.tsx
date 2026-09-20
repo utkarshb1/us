@@ -58,26 +58,29 @@ export function Rsvp() {
     const formData = new FormData(e.currentTarget)
 
     try {
-      const arrivalDate = String(formData.get('arrivalDate'))
-      const dateParts = arrivalDate.match(/^(\d{4})-(\d{2})-(\d{2})$/)
-
-      if (!dateParts) {
-        throw new Error('Invalid arrival date')
-      }
-
-      const [, year, month, day] = dateParts
       const googleFormData = new URLSearchParams({
         'entry.877086558': String(formData.get('name')),
         'entry.1498135098': String(formData.get('email')),
         'entry.1424661284':
           attendance === 'yes' ? "Hell Yes, I'm in" : 'Regretfully Declining',
-        'entry.2606285': guests === 2 ? 'Me + one' : 'Just me',
-        'entry.1491155061_year': year,
-        'entry.1491155061_month': String(Number(month)),
-        'entry.1491155061_day': String(Number(day)),
         fvv: '1',
         pageHistory: '0',
       })
+
+      if (attendance === 'yes') {
+        const arrivalDate = String(formData.get('arrivalDate'))
+        const dateParts = arrivalDate.match(/^(\d{4})-(\d{2})-(\d{2})$/)
+
+        if (!dateParts) {
+          throw new Error('Invalid arrival date')
+        }
+
+        const [, year, month, day] = dateParts
+        googleFormData.set('entry.2606285', guests === 2 ? 'Me + one' : 'Just me')
+        googleFormData.set('entry.1491155061_year', year)
+        googleFormData.set('entry.1491155061_month', String(Number(month)))
+        googleFormData.set('entry.1491155061_day', String(Number(day)))
+      }
 
       await fetch(GOOGLE_FORM_URL, {
         method: 'POST',
@@ -239,41 +242,43 @@ export function Rsvp() {
                         animate={{ opacity: 1, height: 'auto' }}
                         exit={{ opacity: 0, height: 0 }}
                         transition={{ duration: 0.3 }}
-                        className="overflow-hidden"
+                        className="space-y-6 overflow-hidden"
                       >
-                        <label className={labelClass}>Number of guests</label>
-                        <div className="flex gap-3">
-                          {[1, 2].map((n) => (
-                            <button
-                              key={n}
-                              type="button"
-                              onClick={() => setGuests(n)}
-                              className={`flex-1 rounded-xl border px-4 py-3 text-sm transition-colors ${
-                                guests === n
-                                  ? 'border-champagne/60 bg-champagne/10 text-cream'
-                                  : 'border-cream/15 bg-cream/5 text-cream/70 hover:border-cream/30'
-                              }`}
-                            >
-                              {n === 1 ? 'Just me' : 'Me + plus one'}
-                            </button>
-                          ))}
+                        <div>
+                          <label className={labelClass}>Number of guests</label>
+                          <div className="flex gap-3">
+                            {[1, 2].map((n) => (
+                              <button
+                                key={n}
+                                type="button"
+                                onClick={() => setGuests(n)}
+                                className={`flex-1 rounded-xl border px-4 py-3 text-sm transition-colors ${
+                                  guests === n
+                                    ? 'border-champagne/60 bg-champagne/10 text-cream'
+                                    : 'border-cream/15 bg-cream/5 text-cream/70 hover:border-cream/30'
+                                }`}
+                              >
+                                {n === 1 ? 'Just me' : 'Me + plus one'}
+                              </button>
+                            ))}
+                          </div>
+                        </div>
+
+                        <div>
+                          <label htmlFor="arrivalDate" className={labelClass}>
+                            When are you planning to arrive?
+                          </label>
+                          <input
+                            id="arrivalDate"
+                            name="arrivalDate"
+                            type="date"
+                            required
+                            className={inputClass}
+                          />
                         </div>
                       </motion.div>
                     )}
                   </AnimatePresence>
-
-                  <div>
-                    <label htmlFor="arrivalDate" className={labelClass}>
-                      When are you planning to arrive?
-                    </label>
-                    <input
-                      id="arrivalDate"
-                      name="arrivalDate"
-                      type="date"
-                      required
-                      className={inputClass}
-                    />
-                  </div>
 
                   {error && (
                     <p role="alert" className="text-center text-sm text-red-300">

@@ -251,39 +251,6 @@
     mask-image: radial-gradient(circle, black 0 62%, transparent 64%);
   }
 
-  .rangoli-heading {
-    position: relative;
-  }
-
-  .rangoli-heading::before {
-    content: '';
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    width: 8.5rem;
-    aspect-ratio: 1;
-    transform: translate(-50%, -50%);
-    border-radius: 999px;
-    opacity: 0.13;
-    pointer-events: none;
-    background:
-      radial-gradient(circle, transparent 34%, var(--marigold) 35% 37%, transparent 38%),
-      repeating-conic-gradient(
-        from 22.5deg,
-        var(--marigold) 0deg 7deg,
-        transparent 7deg 23deg,
-        var(--leaf) 23deg 28deg,
-        transparent 28deg 45deg
-      );
-    -webkit-mask-image: radial-gradient(circle, black 0 64%, transparent 66%);
-    mask-image: radial-gradient(circle, black 0 64%, transparent 66%);
-  }
-
-  .rangoli-heading > * {
-    position: relative;
-    z-index: 1;
-  }
-
   .invitation-card {
     position: relative;
     box-shadow:
