@@ -1,26 +1,95 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { ExternalLink, Play } from 'lucide-react'
+import { ExternalLink, Pause, Play } from 'lucide-react'
+import { useRef, useState } from 'react'
+import { BASE_PATH } from '@/lib/base-path'
 import { WEDDING } from '@/lib/wedding'
 
-export function MusicPlayer() {
+function Equalizer({ active }: { active: boolean }) {
   return (
-    <motion.a
-      href={WEDDING.musicUrl}
-      target="_blank"
-      rel="noopener noreferrer"
-      aria-label="Open the wedding vibe song on YouTube Music"
-      className="fixed bottom-5 right-5 z-50 flex items-center gap-2.5 rounded-full bg-champagne py-2.5 pl-3 pr-4 text-[#2a2119] shadow-lg shadow-black/30 transition-transform hover:scale-105"
+    <span className="flex h-4 items-end gap-[2px]" aria-hidden="true">
+      {[0, 1, 2, 3].map((bar) => (
+        <span
+          key={bar}
+          className="w-[3px] origin-bottom rounded-full bg-[#2a2119]"
+          style={{
+            height: '100%',
+            animation: active
+              ? `equalize 0.9s ease-in-out ${bar * 0.15}s infinite`
+              : 'none',
+            transform: active ? undefined : 'scaleY(0.3)',
+          }}
+        />
+      ))}
+    </span>
+  )
+}
+
+export function MusicPlayer() {
+  const audioRef = useRef<HTMLAudioElement>(null)
+  const [playing, setPlaying] = useState(false)
+
+  async function togglePlayback() {
+    const audio = audioRef.current
+    if (!audio) return
+
+    if (playing) {
+      audio.pause()
+      return
+    }
+
+    try {
+      audio.volume = 0.55
+      await audio.play()
+    } catch {
+      setPlaying(false)
+    }
+  }
+
+  return (
+    <motion.div
+      className="fixed bottom-5 right-5 z-50 flex items-center gap-1"
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ delay: 1.4, duration: 0.6 }}
     >
-      <span className="flex size-6 items-center justify-center">
-        <Play className="size-4 translate-x-[1px]" aria-hidden="true" />
-      </span>
-      <span className="text-xs font-semibold uppercase tracking-[0.15em]">Wedding Vibe</span>
-      <ExternalLink className="size-3.5" aria-hidden="true" />
-    </motion.a>
+      <audio
+        ref={audioRef}
+        src={`${BASE_PATH}/Goldie_Sohel_-_Aaj_Sajeya_(mp3.pm).mp3`}
+        loop
+        preload="metadata"
+        onPlay={() => setPlaying(true)}
+        onPause={() => setPlaying(false)}
+      />
+      <button
+        type="button"
+        onClick={togglePlayback}
+        aria-pressed={playing}
+        aria-label={playing ? 'Pause wedding song' : 'Play wedding song'}
+        className="flex items-center gap-2.5 rounded-full bg-champagne py-2.5 pl-3 pr-4 text-[#2a2119] shadow-lg shadow-black/30 transition-transform hover:scale-105"
+      >
+        <span className="flex size-6 items-center justify-center">
+          {playing ? (
+            <Pause className="size-4" aria-hidden="true" />
+          ) : (
+            <Play className="size-4 translate-x-[1px]" aria-hidden="true" />
+          )}
+        </span>
+        <Equalizer active={playing} />
+        <span className="text-xs font-semibold uppercase tracking-[0.15em]">
+          {playing ? 'Now Playing' : 'Wedding Vibe'}
+        </span>
+      </button>
+      <a
+        href={WEDDING.musicUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Open the song on YouTube Music"
+        className="glass flex size-10 items-center justify-center rounded-full text-cream/80 transition-colors hover:text-cream"
+      >
+        <ExternalLink className="size-4" aria-hidden="true" />
+      </a>
+    </motion.div>
   )
 }

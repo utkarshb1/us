@@ -3,11 +3,13 @@ import { Moments } from '@/components/moments'
 import { Schedule } from '@/components/schedule'
 import { Rsvp } from '@/components/rsvp'
 import { MusicPlayer } from '@/components/music-player'
+import { PetalFall } from '@/components/petal-fall'
 import { WEDDING } from '@/lib/wedding'
 
 export default function Page() {
   return (
     <main className="relative overflow-x-hidden bg-[#0b0a09]">
+      <PetalFall />
       <Hero />
       <Moments />
       <Schedule />
