@@ -15,7 +15,7 @@ export default function Page() {
       <Schedule />
       <Rsvp />
 
-      <footer className="border-t border-cream/10 px-6 py-14 text-center">
+      <footer className="border-t border-cream/10 px-6 pb-28 pt-14 text-center sm:pb-14">
         <p lang="hi" className="font-serif mb-8 text-lg tracking-[0.22em] text-champagne/75">
           ॥ शुभ विवाह ॥
         </p>
