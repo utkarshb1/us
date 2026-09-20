@@ -2,7 +2,7 @@
 
 import { motion } from 'framer-motion'
 import { ExternalLink, Pause, Play } from 'lucide-react'
-import { useRef, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { BASE_PATH } from '@/lib/base-path'
 import { WEDDING } from '@/lib/wedding'
 
@@ -29,6 +29,27 @@ function Equalizer({ active }: { active: boolean }) {
 export function MusicPlayer() {
   const audioRef = useRef<HTMLAudioElement>(null)
   const [playing, setPlaying] = useState(false)
+
+  useEffect(() => {
+    const audio = audioRef.current
+    if (!audio) return
+
+    audio.volume = 0.55
+    const unlockAudio = () => {
+      window.removeEventListener('pointerdown', unlockAudio)
+      window.removeEventListener('keydown', unlockAudio)
+      if (audio.paused) void audio.play().catch(() => undefined)
+    }
+
+    void audio.play().catch(() => undefined)
+    window.addEventListener('pointerdown', unlockAudio, { once: true })
+    window.addEventListener('keydown', unlockAudio, { once: true })
+
+    return () => {
+      window.removeEventListener('pointerdown', unlockAudio)
+      window.removeEventListener('keydown', unlockAudio)
+    }
+  }, [])
 
   async function togglePlayback() {
     const audio = audioRef.current
@@ -57,6 +78,7 @@ export function MusicPlayer() {
       <audio
         ref={audioRef}
         src={`${BASE_PATH}/Goldie_Sohel_-_Aaj_Sajeya_(mp3.pm).mp3`}
+        autoPlay
         loop
         preload="metadata"
         onPlay={() => setPlaying(true)}

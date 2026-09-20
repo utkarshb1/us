@@ -164,6 +164,9 @@
   --cream: oklch(0.94 0.02 85);
   --champagne: oklch(0.83 0.06 82);
   --clay: oklch(0.68 0.07 55);
+  --marigold: oklch(0.77 0.16 72);
+  --leaf: oklch(0.55 0.09 130);
+  --blush: oklch(0.75 0.1 35);
 }
 
 @layer base {
@@ -175,6 +178,7 @@
     background:
       radial-gradient(circle at 15% 25%, rgb(169 116 79 / 8%), transparent 28rem),
       radial-gradient(circle at 85% 70%, rgb(228 198 146 / 7%), transparent 30rem),
+      radial-gradient(circle at 50% 45%, rgb(96 118 65 / 5%), transparent 34rem),
       #0b0a09;
     font-family: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
     font-feature-settings: 'ss01';
@@ -200,6 +204,22 @@
     background:
       radial-gradient(circle at 0 50%, rgb(228 198 146 / 7%), transparent 24rem),
       radial-gradient(circle at 100% 50%, rgb(169 116 79 / 8%), transparent 24rem);
+  }
+
+  .wedding-section::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    height: 18px;
+    pointer-events: none;
+    opacity: 0.55;
+    background:
+      radial-gradient(circle at 7px 1px, var(--marigold) 0 5px, transparent 6px) 0 0 /
+        28px 18px repeat-x,
+      radial-gradient(ellipse at 20px 4px, var(--leaf) 0 4px, transparent 5px) 0 0 /
+        28px 18px repeat-x;
   }
 
   .invitation-card {
@@ -253,11 +273,23 @@
   position: absolute;
   top: -12vh;
   border-radius: 100% 0 100% 0;
-  background: linear-gradient(135deg, rgb(228 198 146 / 85%), rgb(169 116 79 / 60%));
   filter: drop-shadow(0 2px 3px rgb(0 0 0 / 20%));
   animation-name: petal-fall;
   animation-timing-function: linear;
   animation-iteration-count: infinite;
+}
+
+.petal-marigold {
+  background: linear-gradient(135deg, #f7bd3f, #d97818);
+}
+
+.petal-leaf {
+  background: linear-gradient(135deg, #91a86b, #4f673d);
+  border-radius: 100% 0;
+}
+
+.petal-blush {
+  background: linear-gradient(135deg, #e9a07f, #bc6257);
 }
 
 @keyframes equalize {
