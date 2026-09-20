@@ -284,68 +284,12 @@
     z-index: 1;
   }
 
-  .floral-corners {
-    position: relative;
-  }
-
-  .floral-corners::before,
-  .floral-corners::after {
-    content: '✿';
-    position: absolute;
-    z-index: 5;
-    color: var(--marigold);
-    font-size: 1.9rem;
-    line-height: 1;
-    pointer-events: none;
-    text-shadow:
-      1.2rem 0.25rem 0 #c86f88,
-      0.45rem 1.2rem 0 #78905c;
-    filter: drop-shadow(0 4px 8px rgb(0 0 0 / 30%));
-  }
-
-  .floral-corners::before {
-    left: -0.6rem;
-    top: -0.8rem;
-  }
-
-  .floral-corners::after {
-    right: -0.6rem;
-    bottom: -0.8rem;
-    transform: rotate(180deg);
-  }
-
   .invitation-card {
     position: relative;
     box-shadow:
       inset 0 0 0 1px rgb(228 198 146 / 18%),
       inset 0 0 0 7px rgb(11 10 9 / 35%),
       0 24px 80px rgb(0 0 0 / 25%);
-  }
-
-  .invitation-card::before,
-  .invitation-card::after {
-    content: '✿';
-    position: absolute;
-    z-index: 2;
-    color: var(--marigold);
-    font-family: var(--font-serif), ui-serif, Georgia, serif;
-    font-size: 1.5rem;
-    line-height: 1;
-    pointer-events: none;
-    text-shadow:
-      0.9rem 0.2rem 0 #c86f88,
-      0.3rem 0.9rem 0 #78905c;
-  }
-
-  .invitation-card::before {
-    left: 1rem;
-    top: 1rem;
-  }
-
-  .invitation-card::after {
-    right: 1rem;
-    bottom: 1rem;
-    transform: rotate(180deg);
   }
 
   .event-card {
