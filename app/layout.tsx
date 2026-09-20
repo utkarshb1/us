@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from 'next'
-import { Cormorant_Garamond, Inter } from 'next/font/google'
+import { Cormorant_Garamond, Great_Vibes, Inter } from 'next/font/google'
 import { BASE_PATH } from '@/lib/base-path'
 import './globals.css'
 
@@ -13,6 +13,13 @@ const serif = Cormorant_Garamond({
 const sans = Inter({
   subsets: ['latin'],
   variable: '--font-sans',
+  display: 'swap',
+})
+
+const script = Great_Vibes({
+  subsets: ['latin'],
+  weight: '400',
+  variable: '--font-script',
   display: 'swap',
 })
 
@@ -40,8 +47,8 @@ export const metadata: Metadata = {
 }
 
 export const viewport: Viewport = {
-  colorScheme: 'dark',
-  themeColor: '#0b0a09',
+  colorScheme: 'light',
+  themeColor: '#f7f0e2',
 }
 
 export default function RootLayout({
@@ -50,7 +57,7 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en" className={`${serif.variable} ${sans.variable}`}>
+    <html lang="en" className={`${serif.variable} ${sans.variable} ${script.variable} light`}>
       <body className="antialiased">{children}</body>
     </html>
   )
