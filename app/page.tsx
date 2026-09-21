@@ -4,13 +4,11 @@ import { Schedule } from '@/components/schedule'
 import { Rsvp } from '@/components/rsvp'
 import { MusicPlayer } from '@/components/music-player'
 import { PetalFall } from '@/components/petal-fall'
-import { FloralSiteBorder } from '@/components/floral-site-border'
 import { WEDDING } from '@/lib/wedding'
 
 export default function Page() {
   return (
     <main className="relative overflow-x-hidden bg-[#f7f0e2]">
-      <FloralSiteBorder />
       <PetalFall />
       <Hero />
       <Moments />

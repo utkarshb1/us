@@ -21,7 +21,7 @@ export function Hero() {
           className="h-full w-full object-cover object-center"
         />
       </picture>
-      <div className="relative z-10 flex w-full max-w-3xl flex-col items-center text-center">
+      <div className="absolute left-1/2 top-4 z-10 flex -translate-x-1/2 flex-col items-center text-center sm:top-6">
         <motion.div
           className="mb-1"
           initial={{ opacity: 0, scale: 0.9 }}
@@ -39,6 +39,9 @@ export function Hero() {
         >
           श्री गणेशाय नमः
         </motion.p>
+      </div>
+
+      <div className="absolute left-1/2 top-[43%] z-10 flex w-[calc(100%-2rem)] max-w-3xl -translate-x-1/2 -translate-y-1/2 flex-col items-center text-center sm:top-[44%] sm:w-[calc(100%-4rem)]">
         <motion.p
           className="text-champagne text-[10px] font-medium uppercase tracking-[0.34em] sm:text-xs sm:tracking-[0.4em]"
           initial={{ opacity: 0, y: 16 }}
