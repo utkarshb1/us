@@ -3,15 +3,16 @@
 import { motion } from 'framer-motion'
 import { MapPin } from 'lucide-react'
 import { Countdown } from '@/components/countdown'
-import { GaneshEmblem, PalaceSilhouette, PeacockAccent } from '@/components/indian-ornaments'
+import { GaneshEmblem } from '@/components/indian-ornaments'
+import { BASE_PATH } from '@/lib/base-path'
 import { WEDDING } from '@/lib/wedding'
 
 export function Hero() {
   return (
-    <section className="hero-invitation relative flex min-h-[100svh] w-full items-start justify-center overflow-hidden bg-[#f7f0e2] px-5 pb-40 pt-10 sm:items-center sm:px-8 sm:pb-44 sm:pt-12">
-      <div className="invitation-arch" aria-hidden="true" />
-      <PalaceSilhouette />
-      <PeacockAccent />
+    <section
+      className="hero-invitation relative flex min-h-[100svh] w-full items-start justify-center overflow-hidden bg-[#f7f0e2] bg-cover bg-top bg-no-repeat px-5 pb-40 pt-14 sm:bg-contain sm:px-8 sm:pb-44 sm:pt-16"
+      style={{ backgroundImage: `url(${BASE_PATH}/indian-wedding-hero-background.png)` }}
+    >
 
       <div className="relative z-10 flex w-full max-w-3xl flex-col items-center text-center">
         <motion.div
