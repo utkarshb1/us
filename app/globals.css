@@ -218,6 +218,22 @@
     border-radius: inherit;
   }
 
+  .floral-site-edge {
+    opacity: 0.48;
+  }
+
+  .floral-site-edge-left {
+    left: 0;
+    -webkit-mask-image: linear-gradient(to right, black 0 35%, transparent 100%);
+    mask-image: linear-gradient(to right, black 0 35%, transparent 100%);
+  }
+
+  .floral-site-edge-right {
+    right: 0;
+    -webkit-mask-image: linear-gradient(to left, black 0 35%, transparent 100%);
+    mask-image: linear-gradient(to left, black 0 35%, transparent 100%);
+  }
+
   .invitation-page-panel {
     position: relative;
     padding: 3rem 0.75rem 1.5rem;
