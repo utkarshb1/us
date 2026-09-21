@@ -21,7 +21,7 @@ export function Hero() {
           className="h-full w-full object-cover object-center"
         />
       </picture>
-      <div className="absolute left-1/2 top-4 z-10 flex -translate-x-1/2 flex-col items-center text-center sm:top-6">
+      <div className="absolute left-1/2 top-[12%] z-10 flex -translate-x-1/2 flex-col items-center text-center sm:top-[11%]">
         <motion.div
           className="mb-1"
           initial={{ opacity: 0, scale: 0.9 }}
