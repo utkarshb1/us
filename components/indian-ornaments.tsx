@@ -5,7 +5,7 @@ export function GaneshEmblem() {
     <img
       src={`${BASE_PATH}/ganesha-emblem-clean.png`}
       alt="Lord Ganesha"
-      className="h-20 w-20 object-contain mix-blend-multiply sm:h-24 sm:w-24"
+      className="h-24 w-24 object-contain sm:h-28 sm:w-28"
     />
   )
 }
