@@ -22,7 +22,7 @@ export default function Page() {
         <div className="mx-auto grid max-w-2xl grid-cols-[1fr_auto_1fr] items-start gap-3">
           <div>
             <p className="font-serif text-4xl font-light text-champagne">{WEDDING.couple[0]}</p>
-            <p className="mt-2 text-xs leading-relaxed text-cream/45">
+            <p className="mt-2 text-xs leading-relaxed text-cream/70">
               <span className="block">Daughter of</span>
               <span className="block">Kamal Kishor Patidar</span>
               <span className="block">Gayatri Patidar</span>
@@ -31,7 +31,7 @@ export default function Page() {
           <span className="font-serif pt-1 text-4xl font-light text-champagne/90">&amp;</span>
           <div>
             <p className="font-serif text-4xl font-light text-champagne">{WEDDING.couple[1]}</p>
-            <p className="mt-2 text-xs leading-relaxed text-cream/45">
+            <p className="mt-2 text-xs leading-relaxed text-cream/70">
               <span className="block">Son of</span>
               <span className="block">Subhash Kisanji Bhiogade</span>
               <span className="block">Surekha Bhiogade</span>

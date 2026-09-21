@@ -4,51 +4,16 @@ import { motion } from 'framer-motion'
 import { MapPin } from 'lucide-react'
 import { Countdown } from '@/components/countdown'
 import { GaneshEmblem, PalaceSilhouette, PeacockAccent } from '@/components/indian-ornaments'
-import { BASE_PATH } from '@/lib/base-path'
 import { WEDDING } from '@/lib/wedding'
 
 export function Hero() {
   return (
-    <section className="hero-invitation relative flex min-h-[100svh] w-full items-center justify-center overflow-hidden bg-[#f7f0e2]">
-      {/* Background video layer with poster fallback */}
-      <video
-        className="absolute inset-0 h-full w-full object-cover opacity-20 mix-blend-multiply saturate-[0.8]"
-        poster={`${BASE_PATH}/hero.jpeg`}
-        autoPlay
-        muted
-        loop
-        playsInline
-        preload="none"
-        aria-hidden="true"
-        tabIndex={-1}
-      >
-        <source src={`${BASE_PATH}/hero.mp4`} type="video/mp4" />
-      </video>
-
-      {/* Slow cinematic drift on the still layer */}
-      <motion.div
-        className="absolute inset-0 bg-cover bg-center opacity-25 mix-blend-multiply saturate-[0.8]"
-        style={{ backgroundImage: `url(${BASE_PATH}/hero.jpeg)` }}
-        initial={{ scale: 1.08 }}
-        animate={{ scale: 1.16 }}
-        transition={{ duration: 24, ease: 'linear', repeat: Infinity, repeatType: 'reverse' }}
-        aria-hidden="true"
-      />
-
-      {/* Readability gradients */}
-      <div
-        className="absolute inset-0 bg-gradient-to-b from-[#f7f0e2]/75 via-[#f7f0e2]/45 to-[#f7f0e2]/95"
-        aria-hidden="true"
-      />
-      <div
-        className="absolute inset-0 bg-gradient-to-t from-[#f7f0e2]/90 via-transparent to-[#f7f0e2]/60"
-        aria-hidden="true"
-      />
+    <section className="hero-invitation relative flex min-h-[100svh] w-full items-start justify-center overflow-hidden bg-[#f7f0e2] px-5 pb-40 pt-10 sm:items-center sm:px-8 sm:pb-44 sm:pt-12">
       <div className="invitation-arch" aria-hidden="true" />
       <PalaceSilhouette />
       <PeacockAccent />
 
-      <div className="relative z-10 flex flex-col items-center px-6 text-center">
+      <div className="relative z-10 flex w-full max-w-3xl flex-col items-center text-center">
         <motion.div
           className="mb-1"
           initial={{ opacity: 0, scale: 0.9 }}
@@ -67,7 +32,7 @@ export function Hero() {
           श्री गणेशाय नमः
         </motion.p>
         <motion.p
-          className="text-champagne text-xs font-medium uppercase tracking-[0.4em]"
+          className="text-champagne text-[10px] font-medium uppercase tracking-[0.34em] sm:text-xs sm:tracking-[0.4em]"
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.1 }}
@@ -76,7 +41,7 @@ export function Hero() {
         </motion.p>
 
         <motion.h1
-          className="font-serif mt-5 text-6xl font-light leading-none text-cream sm:text-8xl md:text-[8.5rem]"
+          className="font-serif mt-4 text-5xl font-light leading-none text-cream sm:mt-5 sm:text-7xl md:text-8xl"
           initial={{ opacity: 0, y: 28 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.25, ease: [0.22, 1, 0.36, 1] }}
@@ -87,12 +52,12 @@ export function Hero() {
         </motion.h1>
 
         <motion.div
-          className="mt-8 flex flex-col items-center gap-2 text-cream/85"
+          className="mt-6 flex flex-col items-center gap-2 text-cream/85 sm:mt-8"
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.5 }}
         >
-          <p className="text-sm font-medium uppercase tracking-[0.3em]">
+          <p className="text-xs font-semibold uppercase tracking-[0.24em] sm:text-sm sm:tracking-[0.3em]">
             {WEDDING.dateLabel}
           </p>
           <p className="flex items-center gap-1.5 text-sm text-cream/70">
@@ -102,7 +67,7 @@ export function Hero() {
         </motion.div>
 
         <motion.div
-          className="mt-6 sm:mt-10"
+          className="mt-5 sm:mt-8"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.9, delay: 0.7 }}
