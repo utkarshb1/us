@@ -9,7 +9,7 @@ import { WEDDING } from '@/lib/wedding'
 
 export function Hero() {
   return (
-    <section className="hero-invitation relative flex min-h-[max(100svh,177vw)] w-full items-start justify-center overflow-hidden bg-[#f7f0e2] px-5 pb-40 pt-8 sm:min-h-[100svh] sm:px-8 sm:pb-36 sm:pt-6">
+    <section className="hero-invitation relative flex min-h-[max(100svh,177vw)] w-full items-start justify-center overflow-hidden bg-[#f7f0e2] px-5 pb-40 pt-20 sm:min-h-[100svh] sm:px-8 sm:pb-36 sm:pt-20 lg:pt-24">
       <picture className="absolute inset-0" aria-hidden="true">
         <source
           media="(min-width: 900px) and (orientation: landscape)"
