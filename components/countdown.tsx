@@ -33,10 +33,10 @@ export function Countdown({ target }: { target: Date }) {
       {units.map((u) => (
         <div
           key={u.label}
-          className="glass flex min-w-[54px] flex-col items-center rounded-lg px-2 py-2 sm:min-w-[84px] sm:rounded-xl sm:px-5 sm:py-4"
+          className="glass flex min-w-[54px] flex-col items-center rounded-lg px-2 py-2 sm:min-w-[72px] sm:rounded-xl sm:px-3 sm:py-3"
         >
           <span
-            className="font-serif text-2xl font-light tabular-nums text-cream sm:text-4xl"
+            className="font-serif text-2xl font-light tabular-nums text-cream sm:text-3xl"
             aria-hidden={u.value === undefined}
           >
             {u.value === undefined ? '--' : String(u.value).padStart(2, '0')}

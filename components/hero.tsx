@@ -9,17 +9,18 @@ import { WEDDING } from '@/lib/wedding'
 
 export function Hero() {
   return (
-    <section className="hero-invitation relative flex min-h-[max(100svh,177vw)] w-full items-start justify-center overflow-hidden bg-[#f7f0e2] px-5 pb-40 pt-12 sm:min-h-[100svh] sm:px-8 sm:pb-44 sm:pt-14">
-      <div
-        className="absolute inset-[-2rem] bg-cover bg-center opacity-30 blur-2xl"
-        style={{ backgroundImage: `url(${BASE_PATH}/indian-wedding-hero-background.png)` }}
-        aria-hidden="true"
-      />
-      <div
-        className="absolute inset-0 bg-contain bg-center bg-no-repeat"
-        style={{ backgroundImage: `url(${BASE_PATH}/indian-wedding-hero-background.png)` }}
-        aria-hidden="true"
-      />
+    <section className="hero-invitation relative flex min-h-[max(100svh,177vw)] w-full items-start justify-center overflow-hidden bg-[#f7f0e2] px-5 pb-40 pt-8 sm:min-h-[100svh] sm:px-8 sm:pb-36 sm:pt-6">
+      <picture className="absolute inset-0" aria-hidden="true">
+        <source
+          media="(min-width: 900px) and (orientation: landscape)"
+          srcSet={`${BASE_PATH}/indian-wedding-hero-desktop.png`}
+        />
+        <img
+          src={`${BASE_PATH}/indian-wedding-hero-background.png`}
+          alt=""
+          className="h-full w-full object-cover object-center"
+        />
+      </picture>
       <div className="relative z-10 flex w-full max-w-3xl flex-col items-center text-center">
         <motion.div
           className="mb-1"
@@ -31,7 +32,7 @@ export function Hero() {
         </motion.div>
         <motion.p
           lang="hi"
-          className="font-serif mb-5 text-sm tracking-[0.18em] text-[#a96949]"
+          className="font-serif mb-2 text-xs tracking-[0.16em] text-[#a96949] sm:text-sm"
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.05 }}
@@ -48,7 +49,7 @@ export function Hero() {
         </motion.p>
 
         <motion.h1
-          className="font-serif mt-4 text-5xl font-light leading-none text-cream sm:mt-5 sm:text-7xl md:text-8xl"
+          className="font-serif mt-2 text-5xl font-light leading-none text-cream sm:text-6xl md:text-7xl"
           initial={{ opacity: 0, y: 28 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.25, ease: [0.22, 1, 0.36, 1] }}
@@ -59,7 +60,7 @@ export function Hero() {
         </motion.h1>
 
         <motion.div
-          className="mt-6 flex flex-col items-center gap-2 text-cream/85 sm:mt-8"
+          className="mt-4 flex flex-col items-center gap-1.5 text-cream/85 sm:mt-5"
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.5 }}
@@ -74,7 +75,7 @@ export function Hero() {
         </motion.div>
 
         <motion.div
-          className="mt-5 sm:mt-8"
+          className="mt-4 sm:mt-5"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.9, delay: 0.7 }}
