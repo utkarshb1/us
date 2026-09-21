@@ -9,11 +9,17 @@ import { WEDDING } from '@/lib/wedding'
 
 export function Hero() {
   return (
-    <section
-      className="hero-invitation relative flex min-h-[100svh] w-full items-start justify-center overflow-hidden bg-[#f7f0e2] bg-cover bg-top bg-no-repeat px-5 pb-40 pt-14 sm:bg-contain sm:px-8 sm:pb-44 sm:pt-16"
-      style={{ backgroundImage: `url(${BASE_PATH}/indian-wedding-hero-background.png)` }}
-    >
-
+    <section className="hero-invitation relative flex min-h-[max(100svh,177vw)] w-full items-start justify-center overflow-hidden bg-[#f7f0e2] px-5 pb-40 pt-12 sm:min-h-[100svh] sm:px-8 sm:pb-44 sm:pt-14">
+      <div
+        className="absolute inset-[-2rem] bg-cover bg-center opacity-30 blur-2xl"
+        style={{ backgroundImage: `url(${BASE_PATH}/indian-wedding-hero-background.png)` }}
+        aria-hidden="true"
+      />
+      <div
+        className="absolute inset-0 bg-contain bg-center bg-no-repeat"
+        style={{ backgroundImage: `url(${BASE_PATH}/indian-wedding-hero-background.png)` }}
+        aria-hidden="true"
+      />
       <div className="relative z-10 flex w-full max-w-3xl flex-col items-center text-center">
         <motion.div
           className="mb-1"
