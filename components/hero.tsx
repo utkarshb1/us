@@ -53,7 +53,7 @@ export function Hero() {
         </motion.p>
 
         <motion.h1
-          className="font-serif mt-1.5 whitespace-nowrap text-[clamp(2rem,8.2vw,2.65rem)] font-light leading-none text-cream min-[900px]:landscape:mt-2 min-[900px]:landscape:text-[clamp(2.6rem,4.2vw,4.5rem)]"
+          className="font-serif mt-1.5 whitespace-nowrap text-[clamp(2rem,8.2vw,2.65rem)] font-bold leading-none text-cream min-[900px]:landscape:mt-2 min-[900px]:landscape:text-[clamp(2.6rem,4.2vw,4.5rem)]"
           initial={{ opacity: 0, y: 28 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.25, ease: [0.22, 1, 0.36, 1] }}
