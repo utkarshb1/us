@@ -29,14 +29,14 @@ export function Countdown({ target }: { target: Date }) {
   ]
 
   return (
-    <div className="flex items-stretch gap-1 sm:gap-3">
+    <div className="flex items-stretch gap-1 sm:gap-2 min-[900px]:landscape:gap-3">
       {units.map((u) => (
         <div
           key={u.label}
-          className="glass flex min-w-[54px] flex-col items-center rounded-lg px-2 py-2 sm:min-w-[72px] sm:rounded-xl sm:px-3 sm:py-3"
+          className="glass flex min-w-[46px] flex-col items-center rounded-lg px-1.5 py-1.5 sm:min-w-[58px] sm:rounded-xl sm:px-2 sm:py-2 min-[900px]:landscape:min-w-[68px] min-[900px]:landscape:px-3 min-[900px]:landscape:py-3"
         >
           <span
-            className="font-serif text-2xl font-light tabular-nums text-cream sm:text-3xl"
+            className="font-serif text-xl font-light tabular-nums text-cream sm:text-2xl min-[900px]:landscape:text-3xl"
             aria-hidden={u.value === undefined}
           >
             {u.value === undefined ? '--' : String(u.value).padStart(2, '0')}

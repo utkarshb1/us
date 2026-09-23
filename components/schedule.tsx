@@ -182,6 +182,7 @@ export function Schedule() {
         <SectionHeading
           eyebrow="Two Days of Celebration"
           title="How it unfolds"
+          align="center"
           className="max-w-xl"
         />
 

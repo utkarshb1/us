@@ -19,7 +19,7 @@ export function Moments() {
           </p>
         </Reveal>
 
-        <div className="mt-10 grid auto-rows-[340px] grid-cols-1 gap-3 sm:mt-14 sm:auto-rows-[260px] sm:grid-cols-2 sm:gap-4 lg:grid-cols-3">
+        <div className="mt-10 grid auto-rows-[210px] grid-cols-2 gap-2.5 sm:mt-14 sm:auto-rows-[260px] sm:gap-4 lg:grid-cols-3">
           {MOMENTS.map((m, i) => (
             <Reveal
               key={m.src}

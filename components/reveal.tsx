@@ -31,13 +31,16 @@ export function SectionHeading({
   eyebrow,
   title,
   className,
+  align = 'start',
 }: {
   eyebrow: string
   title: string
   className?: string
+  align?: 'start' | 'center'
 }) {
+  const centered = align === 'center'
   return (
-    <div className={`section-heading relative ${className ?? ''}`}>
+    <div className={`section-heading relative ${centered ? 'mx-auto text-center' : ''} ${className ?? ''}`}>
       <span className="mandala-watermark" aria-hidden="true" />
       <Reveal>
         <p className="text-champagne/80 text-xs font-medium uppercase tracking-[0.35em]">
@@ -50,7 +53,10 @@ export function SectionHeading({
         </h2>
       </Reveal>
       <Reveal delay={0.14}>
-        <div className="mx-auto mt-5 flex w-36 items-center gap-3 text-champagne/70 sm:mx-0" aria-hidden="true">
+        <div
+          className={`mt-5 flex w-36 items-center gap-3 text-champagne/70 ${centered ? 'mx-auto' : 'mx-auto sm:mx-0'}`}
+          aria-hidden="true"
+        >
           <span className="h-px flex-1 bg-gradient-to-r from-transparent to-champagne/70" />
           <span className="font-serif text-lg leading-none">❦</span>
           <span className="h-px flex-1 bg-gradient-to-l from-transparent to-champagne/70" />
