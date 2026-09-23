@@ -17,7 +17,7 @@ export function Hero() {
             srcSet={`${BASE_PATH}/indian-wedding-hero-desktop-botanical.png`}
           />
           <img
-            src={`${BASE_PATH}/indian-wedding-hero-botanical.png`}
+            src={`${BASE_PATH}/indian-wedding-hero-centered.png`}
             alt=""
             className="block h-auto w-full select-none"
           />
