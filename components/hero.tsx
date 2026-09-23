@@ -42,7 +42,7 @@ export function Hero() {
         </motion.p>
         </div>
 
-        <div className="absolute left-1/2 top-[47%] z-10 flex w-[54%] max-w-sm -translate-x-1/2 -translate-y-1/2 flex-col items-center text-center min-[900px]:landscape:top-[46%] min-[900px]:landscape:w-[38%] min-[900px]:landscape:max-w-xl">
+        <div className="absolute left-1/2 top-[47%] z-10 flex w-[62%] max-w-md -translate-x-1/2 -translate-y-1/2 flex-col items-center text-center min-[900px]:landscape:top-[46%] min-[900px]:landscape:w-[44%] min-[900px]:landscape:max-w-2xl">
         <motion.p
           className="text-champagne text-[9px] font-medium uppercase tracking-[0.18em] sm:text-xs sm:tracking-[0.32em]"
           initial={{ opacity: 0, y: 16 }}
@@ -53,7 +53,7 @@ export function Hero() {
         </motion.p>
 
         <motion.h1
-          className="font-serif mt-1.5 whitespace-nowrap text-[clamp(1.45rem,5.7vw,2rem)] font-light leading-none text-cream min-[900px]:landscape:mt-2 min-[900px]:landscape:text-[clamp(1.85rem,3.15vw,3.25rem)]"
+          className="font-serif mt-1.5 whitespace-nowrap text-[clamp(2rem,8.2vw,2.65rem)] font-light leading-none text-cream min-[900px]:landscape:mt-2 min-[900px]:landscape:text-[clamp(2.6rem,4.2vw,4.5rem)]"
           initial={{ opacity: 0, y: 28 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.25, ease: [0.22, 1, 0.36, 1] }}
