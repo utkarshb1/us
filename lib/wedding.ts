@@ -139,7 +139,7 @@ export const MOMENTS: Moment[] = [
 
 export const SECOND_MOMENTS: Moment[] = [
   { src: `${BASE_PATH}/moment-1.jpeg`, alt: 'The couple laughing together in golden light', span: 'row' },
-  { src: `${BASE_PATH}/moment-2.jpeg`, alt: 'Champagne glasses clinking under string lights' },
+  { src: `${BASE_PATH}/second/moment-2.jpeg`, alt: 'The couple holding flower bouquets in traditional attire' },
   {
     src: `${BASE_PATH}/moment-3.jpeg`,
     alt: 'The couple taking a selfie together outdoors',
