@@ -49,10 +49,10 @@ export function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.1 }}
         >
-          <p className="text-champagne text-xs font-medium tracking-normal sm:text-sm">
+          <p className="font-serif text-champagne text-base font-light tracking-normal sm:text-lg">
             Together with our families
           </p>
-          <p className="text-champagne text-balance text-xs font-medium leading-snug tracking-normal sm:text-sm">
+          <p className="font-serif text-champagne text-balance text-base font-light leading-snug tracking-normal sm:text-lg">
             We cordially invite you to our wedding
           </p>
         </motion.div>
