@@ -173,7 +173,7 @@ export function Rsvp() {
                       id="name"
                       name="name"
                       required
-                      placeholder="Saloni Sharma & guest"
+                      placeholder="Your name"
                       className={inputClass}
                     />
                   </div>
