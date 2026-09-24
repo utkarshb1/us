@@ -137,5 +137,20 @@ export const MOMENTS: Moment[] = [
   { src: `${BASE_PATH}/moment-7.JPG`, alt: 'The couple walking together beneath the trees' },
 ]
 
-// Second site gallery. Add the replacement photos under public/second/.
-export const SECOND_MOMENTS: Moment[] = []
+export const SECOND_MOMENTS: Moment[] = [
+  { src: `${BASE_PATH}/moment-1.jpeg`, alt: 'The couple laughing together in golden light', span: 'row' },
+  { src: `${BASE_PATH}/moment-2.jpeg`, alt: 'Champagne glasses clinking under string lights' },
+  {
+    src: `${BASE_PATH}/moment-3.jpeg`,
+    alt: 'The couple taking a selfie together outdoors',
+    span: 'row',
+  },
+  { src: `${BASE_PATH}/second/moment-5.jpeg`, alt: 'The couple smiling together at a café' },
+  {
+    src: `${BASE_PATH}/moment-6.jpeg`,
+    alt: 'The couple standing together outside a temple',
+    span: 'row',
+  },
+  { src: `${BASE_PATH}/second/moment-4.jpeg`, alt: 'The couple walking hand in hand in wedding attire' },
+  { src: `${BASE_PATH}/moment-7.JPG`, alt: 'The couple walking together beneath the trees' },
+]
