@@ -24,7 +24,7 @@ export function WeddingSite({ moments }: { moments: Moment[] }) {
             <p className="font-serif text-4xl font-light text-champagne">{WEDDING.couple[0]}</p>
             <p className="mt-2 text-xs leading-relaxed text-cream/70">
               <span className="block">Daughter of</span>
-              <span className="block">Kamal Kishor Patidar</span>
+              <span className="block">Kamal Kishore Patidar</span>
               <span className="block">Gayatri Patidar</span>
             </p>
           </div>
