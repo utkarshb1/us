@@ -113,7 +113,13 @@ export const DRESS_CARDS = [
   },
 ]
 
-export const MOMENTS = [
+export type Moment = {
+  src: string
+  alt: string
+  span?: 'row' | 'col'
+}
+
+export const MOMENTS: Moment[] = [
   { src: `${BASE_PATH}/moment-1.jpeg`, alt: 'The couple laughing together in golden light', span: 'row' },
   { src: `${BASE_PATH}/moment-2.jpeg`, alt: 'Champagne glasses clinking under string lights' },
   {
@@ -130,3 +136,6 @@ export const MOMENTS = [
   { src: `${BASE_PATH}/moment-4.jpeg`, alt: 'Guests dancing under warm festival lights' },
   { src: `${BASE_PATH}/moment-7.JPG`, alt: 'The couple walking together beneath the trees' },
 ]
+
+// Second site gallery. Add the replacement photos under public/second/.
+export const SECOND_MOMENTS: Moment[] = []

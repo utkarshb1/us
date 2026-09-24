@@ -1,10 +1,10 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { MOMENTS } from '@/lib/wedding'
+import { MOMENTS, type Moment } from '@/lib/wedding'
 import { Reveal, SectionHeading } from '@/components/reveal'
 
-export function Moments() {
+export function Moments({ moments = MOMENTS }: { moments?: Moment[] }) {
   return (
     <section id="moments" className="wedding-section section-rose relative px-2.5 py-10 sm:px-6 sm:py-20">
       <div className="invitation-page-panel mx-auto max-w-6xl">
@@ -20,7 +20,7 @@ export function Moments() {
         </Reveal>
 
         <div className="mt-10 grid auto-rows-[210px] grid-cols-2 gap-2.5 sm:mt-14 sm:auto-rows-[260px] sm:gap-4 lg:grid-cols-3">
-          {MOMENTS.map((m, i) => (
+          {moments.map((m, i) => (
             <Reveal
               key={m.src}
               delay={(i % 3) * 0.08}
