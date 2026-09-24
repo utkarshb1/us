@@ -43,14 +43,19 @@ export function Hero() {
         </div>
 
         <div className="absolute left-1/2 top-[47%] z-10 flex w-[62%] max-w-md -translate-x-1/2 -translate-y-1/2 flex-col items-center text-center min-[900px]:landscape:top-[46%] min-[900px]:landscape:w-[44%] min-[900px]:landscape:max-w-2xl">
-        <motion.p
-          className="text-champagne text-[9px] font-medium uppercase tracking-[0.18em] sm:text-xs sm:tracking-[0.32em]"
+        <motion.div
+          className="flex max-w-[16rem] flex-col items-center gap-1 sm:max-w-lg"
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.1 }}
         >
-          Together with our families
-        </motion.p>
+          <p className="text-champagne text-[9px] font-medium uppercase tracking-[0.16em] sm:text-xs sm:tracking-[0.28em]">
+            Together with our families
+          </p>
+          <p className="text-champagne text-balance text-[9px] font-medium uppercase leading-snug tracking-[0.12em] sm:text-xs sm:tracking-[0.2em]">
+            we cordially invite you to our wedding
+          </p>
+        </motion.div>
 
         <motion.h1
           className="font-serif mt-1.5 whitespace-nowrap text-[clamp(2rem,8.2vw,2.65rem)] font-bold leading-none text-cream min-[900px]:landscape:mt-2 min-[900px]:landscape:text-[clamp(2.6rem,4.2vw,4.5rem)]"
@@ -79,7 +84,7 @@ export function Hero() {
         </motion.div>
 
         <motion.div
-          className="mt-4 sm:mt-5"
+          className="mt-8 translate-y-3 sm:mt-10 sm:translate-y-4"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.9, delay: 0.7 }}
