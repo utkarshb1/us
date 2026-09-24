@@ -17,7 +17,7 @@ const sans = Inter({
 })
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://utkarshb1.github.io/us/'),
+  metadataBase: new URL(`https://utkarshb1.github.io${BASE_PATH || '/us'}/`),
   title: 'Saloni & Utkarsh · Ujjain, India',
   description:
     'Join us for the wedding of Saloni & Utkarsh in Ujjain, India — December 2, 2026. RSVP, schedule, dress code, and more.',
