@@ -44,16 +44,16 @@ export function Hero() {
 
         <div className="absolute left-1/2 top-[47%] z-10 flex w-[62%] max-w-md -translate-x-1/2 -translate-y-1/2 flex-col items-center text-center min-[900px]:landscape:top-[46%] min-[900px]:landscape:w-[44%] min-[900px]:landscape:max-w-2xl">
         <motion.div
-          className="flex w-[46vw] max-w-[12.5rem] flex-col items-center gap-1 sm:w-auto sm:max-w-lg"
+          className="flex w-[50vw] max-w-[15rem] flex-col items-center gap-1 sm:w-auto sm:max-w-lg"
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.1 }}
         >
-          <p className="font-serif text-champagne w-full text-balance text-base font-light leading-snug tracking-normal sm:text-lg">
+          <p className="font-serif text-champagne w-full text-balance text-center text-sm font-light uppercase leading-snug tracking-[0.12em] sm:text-base sm:tracking-[0.16em]">
             Together with our families
           </p>
-          <p className="font-serif text-champagne w-full text-balance text-base font-light leading-snug tracking-normal sm:text-lg">
-            We cordially invite you to our wedding
+          <p className="font-serif text-champagne max-w-[11rem] text-balance text-center text-[11px] font-light leading-snug tracking-normal sm:max-w-xs sm:text-xs">
+            we cordially invite you to our wedding
           </p>
         </motion.div>
 
