@@ -154,3 +154,21 @@ export const SECOND_MOMENTS: Moment[] = [
   { src: `${BASE_PATH}/second/moment-4.jpeg`, alt: 'The couple walking hand in hand in wedding attire' },
   { src: `${BASE_PATH}/second/moment-7.jpeg`, alt: 'The couple smiling together at a café' },
 ]
+
+export const US_WEDDING_MOMENTS: Moment[] = [
+  { src: `${BASE_PATH}/us_wedding/moment-1.jpeg`, alt: 'The couple walking together along a tree-lined path', span: 'row' },
+  { src: `${BASE_PATH}/moment-2.jpeg`, alt: 'Champagne glasses clinking under string lights' },
+  {
+    src: `${BASE_PATH}/moment-3.jpeg`,
+    alt: 'The couple taking a selfie together outdoors',
+    span: 'row',
+  },
+  { src: `${BASE_PATH}/moment-5.jpg`, alt: 'The couple walking hand in hand at dusk' },
+  {
+    src: `${BASE_PATH}/moment-6.jpeg`,
+    alt: 'The couple standing together outside a temple',
+    span: 'row',
+  },
+  { src: `${BASE_PATH}/moment-4.jpeg`, alt: 'Guests dancing under warm festival lights' },
+  { src: `${BASE_PATH}/moment-7.JPG`, alt: 'The couple walking together beneath the trees' },
+]

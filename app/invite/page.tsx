@@ -1,6 +1,9 @@
 import { WeddingSite } from '@/components/wedding-site'
-import { SECOND_MOMENTS } from '@/lib/wedding'
+import { SECOND_MOMENTS, US_WEDDING_MOMENTS } from '@/lib/wedding'
+
+const moments =
+  process.env.NEXT_PUBLIC_INVITE_VARIANT === 'us_wedding' ? US_WEDDING_MOMENTS : SECOND_MOMENTS
 
 export default function InvitePage() {
-  return <WeddingSite moments={SECOND_MOMENTS} />
+  return <WeddingSite moments={moments} />
 }
