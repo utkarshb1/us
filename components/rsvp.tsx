@@ -4,6 +4,7 @@ import { AnimatePresence, motion } from 'framer-motion'
 import { Check, Heart, PartyPopper } from 'lucide-react'
 import { useState } from 'react'
 import { Reveal, SectionHeading } from '@/components/reveal'
+import { IS_RECEPTION } from '@/lib/wedding'
 
 type Attendance = 'yes' | 'no'
 
@@ -58,8 +59,9 @@ export function Rsvp() {
     const formData = new FormData(e.currentTarget)
 
     try {
+      const guestName = String(formData.get('name'))
       const googleFormData = new URLSearchParams({
-        'entry.877086558': String(formData.get('name')),
+        'entry.877086558': IS_RECEPTION ? `Reception — ${guestName}` : guestName,
         'entry.1498135098': String(formData.get('email')),
         'entry.1424661284':
           attendance === 'yes' ? "Hell Yes, I'm in" : 'Regretfully Declining',
@@ -68,7 +70,7 @@ export function Rsvp() {
       })
 
       if (attendance === 'yes') {
-        const arrivalDate = String(formData.get('arrivalDate'))
+        const arrivalDate = IS_RECEPTION ? '2026-12-04' : String(formData.get('arrivalDate'))
         const dateParts = arrivalDate.match(/^(\d{4})-(\d{2})-(\d{2})$/)
 
         if (!dateParts) {
@@ -145,7 +147,9 @@ export function Rsvp() {
                   </h3>
                   <p className="mt-3 max-w-sm text-sm leading-relaxed text-cream/60">
                     {attendance === 'yes'
-                      ? 'See you in Ujjain. We cannot wait to celebrate with you.'
+                      ? IS_RECEPTION
+                        ? 'See you in Ramtek. We cannot wait to celebrate with you.'
+                        : 'See you in Ujjain. We cannot wait to celebrate with you.'
                       : 'Thank you for letting us know — we will raise a glass to you from afar.'}
                   </p>
                   <button
@@ -264,18 +268,20 @@ export function Rsvp() {
                           </div>
                         </div>
 
-                        <div>
-                          <label htmlFor="arrivalDate" className={labelClass}>
-                            When are you planning to arrive?
-                          </label>
-                          <input
-                            id="arrivalDate"
-                            name="arrivalDate"
-                            type="date"
-                            required
-                            className={inputClass}
-                          />
-                        </div>
+                        {!IS_RECEPTION && (
+                          <div>
+                            <label htmlFor="arrivalDate" className={labelClass}>
+                              When are you planning to arrive?
+                            </label>
+                            <input
+                              id="arrivalDate"
+                              name="arrivalDate"
+                              type="date"
+                              required
+                              className={inputClass}
+                            />
+                          </div>
+                        )}
                       </motion.div>
                     )}
                   </AnimatePresence>

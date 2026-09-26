@@ -12,6 +12,18 @@ export const WEDDING = {
   musicUrl: 'https://music.youtube.com/watch?v=Het4pXDENBI&si=Q5SzqQqMNPfFrXeB',
 }
 
+export const IS_RECEPTION = process.env.NEXT_PUBLIC_SITE === 'reception'
+
+export const RECEPTION = {
+  dateLabel: 'December 4, 2026',
+  location: 'Ramtek, Nagpur',
+  venue: 'Takkamore Celebration Hall',
+  venueAddress: 'Ramtek, Nagpur 441106',
+  date: new Date('2026-12-04T19:30:00+05:30'),
+  mapsUrl: 'https://maps.app.goo.gl/DtNtHXfDydXS4bFE6',
+  inviteLine: 'we cordially invite you to our reception',
+}
+
 export type ScheduleItem = {
   title: string
   time: string
@@ -85,6 +97,24 @@ export const SCHEDULE: ScheduleDay[] = [
         venue: 'The Grand Ballroom',
         address: WEDDING.venueAddress,
         description: 'An evening of dinner, celebration, and dancing to close the festivities.',
+      },
+    ],
+  },
+]
+
+export const RECEPTION_SCHEDULE: ScheduleDay[] = [
+  {
+    label: 'Reception',
+    dateLabel: 'Friday, December 4, 2026',
+    events: [
+      {
+        title: 'Reception',
+        time: '7:30 PM onwards',
+        start: RECEPTION.date,
+        durationMinutes: 240,
+        venue: RECEPTION.venue,
+        address: RECEPTION.venueAddress,
+        description: 'Dinner and celebration at the groom’s home in Ramtek.',
       },
     ],
   },

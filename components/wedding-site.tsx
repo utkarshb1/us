@@ -4,7 +4,7 @@ import { Schedule } from '@/components/schedule'
 import { Rsvp } from '@/components/rsvp'
 import { MusicPlayer } from '@/components/music-player'
 import { PetalFall } from '@/components/petal-fall'
-import { WEDDING, type Moment } from '@/lib/wedding'
+import { IS_RECEPTION, RECEPTION, WEDDING, type Moment } from '@/lib/wedding'
 
 export function WeddingSite({ moments }: { moments: Moment[] }) {
   return (
@@ -39,7 +39,8 @@ export function WeddingSite({ moments }: { moments: Moment[] }) {
           </div>
         </div>
         <p className="mt-4 text-xs uppercase tracking-[0.3em] text-cream/50">
-          {WEDDING.dateLabel} · {WEDDING.location}
+          {IS_RECEPTION ? RECEPTION.dateLabel : WEDDING.dateLabel} ·{' '}
+          {IS_RECEPTION ? RECEPTION.location : WEDDING.location}
         </p>
         <p className="mt-6 text-xs text-cream/30">
           Made with love, for the ones we love.

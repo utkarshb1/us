@@ -15,7 +15,7 @@ import {
 } from 'lucide-react'
 import { useEffect, useRef, useState } from 'react'
 import { googleCalendarUrl, icsDataUri } from '@/lib/calendar'
-import { SCHEDULE, WEDDING, type ScheduleItem } from '@/lib/wedding'
+import { IS_RECEPTION, RECEPTION, RECEPTION_SCHEDULE, SCHEDULE, WEDDING, type ScheduleItem } from '@/lib/wedding'
 import { Reveal, SectionHeading } from '@/components/reveal'
 
 function EventIcon({ title }: { title: string }) {
@@ -55,7 +55,9 @@ function AddToCalendar({ item }: { item: ScheduleItem }) {
   const cal = {
     title: `${item.title} — ${WEDDING.couple[0]} & ${WEDDING.couple[1]}`,
     description: [item.description, item.note].filter(Boolean).join('\n\n'),
-    location: `${WEDDING.venue}, ${WEDDING.venueAddress}`,
+    location: IS_RECEPTION
+      ? `${RECEPTION.venue}, ${RECEPTION.venueAddress}`
+      : `${WEDDING.venue}, ${WEDDING.venueAddress}`,
     start: item.start,
     durationMinutes: item.durationMinutes,
   }
@@ -180,14 +182,14 @@ export function Schedule() {
     <section id="schedule" className="wedding-section section-saffron relative px-2.5 py-10 sm:px-6 sm:py-20">
       <div className="invitation-page-panel mx-auto max-w-4xl">
         <SectionHeading
-          eyebrow="Two Days of Celebration"
-          title="How it unfolds"
+          eyebrow={IS_RECEPTION ? 'Groom’s Reception' : 'Two Days of Celebration'}
+          title={IS_RECEPTION ? 'An evening in Ramtek' : 'How it unfolds'}
           align="center"
           className="max-w-xl"
         />
 
         <div className="mt-14 space-y-16">
-          {SCHEDULE.map((day) => (
+          {(IS_RECEPTION ? RECEPTION_SCHEDULE : SCHEDULE).map((day) => (
             <div key={day.label}>
               <Reveal>
                 <div className="flex flex-col items-center text-center">
@@ -210,7 +212,7 @@ export function Schedule() {
 
         <Reveal className="mt-16 flex justify-center">
           <a
-            href={WEDDING.mapsUrl}
+            href={IS_RECEPTION ? RECEPTION.mapsUrl : WEDDING.mapsUrl}
             target="_blank"
             rel="noopener noreferrer"
             className="diya-glow group inline-flex items-center gap-2.5 rounded-full bg-champagne px-6 py-3 text-sm font-medium text-white transition-transform hover:scale-[1.03]"
@@ -220,7 +222,11 @@ export function Schedule() {
           </a>
         </Reveal>
         <Reveal delay={0.05} className="mt-3 text-center">
-          <p className="text-xs text-cream/45">{WEDDING.venue} · {WEDDING.venueAddress}</p>
+          <p className="text-xs text-cream/45">
+            {IS_RECEPTION
+              ? `${RECEPTION.venue} · ${RECEPTION.venueAddress}`
+              : `${WEDDING.venue} · ${WEDDING.venueAddress}`}
+          </p>
         </Reveal>
       </div>
     </section>

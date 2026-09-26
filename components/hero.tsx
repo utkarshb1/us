@@ -5,7 +5,7 @@ import { MapPin } from 'lucide-react'
 import { Countdown } from '@/components/countdown'
 import { GaneshEmblem } from '@/components/indian-ornaments'
 import { BASE_PATH } from '@/lib/base-path'
-import { WEDDING } from '@/lib/wedding'
+import { IS_RECEPTION, RECEPTION, WEDDING } from '@/lib/wedding'
 
 export function Hero() {
   return (
@@ -53,7 +53,7 @@ export function Hero() {
             Together with our families
           </p>
           <p className="font-serif text-champagne max-w-[11rem] text-balance text-center text-[11px] font-light leading-snug tracking-normal sm:max-w-xs sm:text-xs">
-            we cordially invite you to our wedding
+            {IS_RECEPTION ? RECEPTION.inviteLine : 'we cordially invite you to our wedding'}
           </p>
         </motion.div>
 
@@ -75,11 +75,11 @@ export function Hero() {
           transition={{ duration: 0.8, delay: 0.5 }}
         >
           <p className="text-[10px] font-semibold uppercase tracking-[0.14em] sm:text-sm sm:tracking-[0.28em]">
-            {WEDDING.dateLabel}
+            {IS_RECEPTION ? RECEPTION.dateLabel : WEDDING.dateLabel}
           </p>
           <p className="flex items-center gap-1.5 text-xs text-cream/70 sm:text-sm">
             <MapPin className="size-3.5 text-champagne" aria-hidden="true" />
-            {WEDDING.location}
+            {IS_RECEPTION ? RECEPTION.location : WEDDING.location}
           </p>
         </motion.div>
 
@@ -89,7 +89,7 @@ export function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.9, delay: 0.7 }}
         >
-          <Countdown target={WEDDING.date} />
+          <Countdown target={IS_RECEPTION ? RECEPTION.date : WEDDING.date} />
         </motion.div>
         </div>
       </div>
