@@ -33,12 +33,15 @@ export type ScheduleItem = {
   address: string
   description: string
   note?: string
+  calendarLocation?: string
+  mapsUrl?: string
 }
 
 export type ScheduleDay = {
   label: string
   dateLabel: string
   events: ScheduleItem[]
+  separated?: boolean
 }
 
 export const SCHEDULE: ScheduleDay[] = [
@@ -97,6 +100,24 @@ export const SCHEDULE: ScheduleDay[] = [
         venue: 'The Grand Ballroom',
         address: WEDDING.venueAddress,
         description: 'An evening of dinner, celebration, and dancing to close the festivities.',
+      },
+    ],
+  },
+  {
+    label: 'Reception at Ramtek',
+    dateLabel: 'Friday, December 4, 2026',
+    separated: true,
+    events: [
+      {
+        title: 'Reception',
+        time: '7:30 PM onwards',
+        start: RECEPTION.date,
+        durationMinutes: 240,
+        venue: RECEPTION.venue,
+        address: RECEPTION.venueAddress,
+        description: 'Dinner and celebration at Takkamore Celebration Hall, Ramtek.',
+        calendarLocation: `${RECEPTION.venue}, ${RECEPTION.venueAddress}`,
+        mapsUrl: RECEPTION.mapsUrl,
       },
     ],
   },

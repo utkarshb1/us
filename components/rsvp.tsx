@@ -7,6 +7,9 @@ import { Reveal, SectionHeading } from '@/components/reveal'
 import { IS_RECEPTION } from '@/lib/wedding'
 
 type Attendance = 'yes' | 'no'
+type FunctionAttending = 'Wedding at Ujjain' | 'Reception at Ramtek' | 'Both'
+
+const FUNCTIONS: FunctionAttending[] = ['Wedding at Ujjain', 'Reception at Ramtek', 'Both']
 
 const GOOGLE_FORM_URL =
   'https://docs.google.com/forms/d/e/1FAIpQLSdfVvKCzXl9Egz7eEpsm55NHE1SjAIl30xao2w9sU4x2AFLkg/formResponse'
@@ -49,6 +52,7 @@ export function Rsvp() {
   const [submitting, setSubmitting] = useState(false)
   const [error, setError] = useState('')
   const [attendance, setAttendance] = useState<Attendance>('yes')
+  const [functionAttending, setFunctionAttending] = useState<FunctionAttending>('Wedding at Ujjain')
   const [guests, setGuests] = useState(1)
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
@@ -70,6 +74,9 @@ export function Rsvp() {
       })
 
       if (attendance === 'yes') {
+        if (!IS_RECEPTION) {
+          googleFormData.set('entry.1390639832', functionAttending)
+        }
         const arrivalDate = IS_RECEPTION ? '2026-12-04' : String(formData.get('arrivalDate'))
         const dateParts = arrivalDate.match(/^(\d{4})-(\d{2})-(\d{2})$/)
 
@@ -248,6 +255,46 @@ export function Rsvp() {
                         transition={{ duration: 0.3 }}
                         className="space-y-6 overflow-hidden"
                       >
+                        {!IS_RECEPTION && (
+                          <fieldset>
+                            <legend className={labelClass}>Function attending</legend>
+                            <div className="grid grid-cols-1 gap-3">
+                              {FUNCTIONS.map((option) => (
+                                <label
+                                  key={option}
+                                  className={`flex cursor-pointer items-center gap-3 rounded-xl border px-4 py-3 text-sm transition-colors ${
+                                    functionAttending === option
+                                      ? 'border-champagne/60 bg-champagne/10 text-cream'
+                                      : 'border-cream/15 bg-cream/5 text-cream/70 hover:border-cream/30'
+                                  }`}
+                                >
+                                  <input
+                                    type="radio"
+                                    name="functionAttending"
+                                    value={option}
+                                    checked={functionAttending === option}
+                                    onChange={() => setFunctionAttending(option)}
+                                    className="sr-only"
+                                  />
+                                  <span
+                                    className={`flex size-4 items-center justify-center rounded-full border ${
+                                      functionAttending === option
+                                        ? 'border-champagne bg-champagne'
+                                        : 'border-cream/40'
+                                    }`}
+                                    aria-hidden="true"
+                                  >
+                                    {functionAttending === option && (
+                                      <Check className="size-3 text-white" />
+                                    )}
+                                  </span>
+                                  {option}
+                                </label>
+                              ))}
+                            </div>
+                          </fieldset>
+                        )}
+
                         <div>
                           <label className={labelClass}>Number of guests</label>
                           <div className="flex gap-3">
